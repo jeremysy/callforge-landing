@@ -172,8 +172,7 @@
                             <div class="flex justify-between"><span class="text-gray-500">Renewal Date:</span> <span
                                     class="text-yellow-400">Dec 15 (45 days)</span></div>
                             <div class="flex justify-between"><span class="text-gray-500">License Utilization:</span>
-                                <span class="text-red-400">42% (Low)</span>
-                            </div>
+                                <span class="text-red-400">42% (Low)</span></div>
                         </div>
                         <div class="pt-2 border-t border-white/5 text-xs text-gray-400">
                             <span class="text-green-400">→ Action:</span> Utilization is low. Schedule "Value Review"
@@ -315,41 +314,134 @@
                         <div class="flex items-center justify-between p-4 opacity-50">
                             <div class="flex items-center gap-3">
                                 <span class="text-gray-600 font-mono font-bold">03</span>
-                                modal.classList.remove('hidden');
-                                // Small delay to allow display:block to apply before opacity transition
-                                setTimeout(() => {
-                                modal.classList.remove('opacity-0');
-                                const content = modal.querySelector('div');
-                                content.classList.remove('scale-95');
-                                content.classList.add('scale-100');
-                                }, 10);
-                                }
+                                <div>
+                                    <div class="text-sm font-bold text-gray-300">Dark Mode</div>
+                                    <div class="text-[10px] text-gray-500">98 mentions</div>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-sm font-bold text-gray-300">$12k</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-                                function closeModal() {
-                                const modal = document.getElementById('booking-modal');
-                                modal.classList.add('opacity-0');
-                                const content = modal.querySelector('div');
-                                content.classList.remove('scale-100');
-                                content.classList.add('scale-95');
-                                setTimeout(() => {
-                                modal.classList.add('hidden');
-                                }, 300); // Matches transition duration
-                                }
+    </section>
 
-                                // Close modal on escape key
-                                document.addEventListener('keydown', function (event) {
-                                if (event.key === "Escape") {
-                                closeModal();
-                                }
-                                });
+    <!-- 5. FINAL SCREEN (CTA) -->
+    <footer class="py-24 px-6 text-center max-w-3xl mx-auto">
+        <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-6 leading-tight">Want to see how combining and
+            analyzing these data treasures unlocks hidden revenue?</h2>
+        <p class="text-lg text-muted mb-10 leading-relaxed">
+            20-min call. We’ll audit your revenue stack and tell you exactly what’s hiding in your logs.
+            <br class="hidden md:block" />
+            <span class="text-white">If it’s not worth at least 10× the build cost, we won’t charge you.</span>
+        </p>
 
-                                // Close modal on clicking outside
-                                document.getElementById('booking-modal').addEventListener('click', function (event) {
-                                if (event.target === this) {
-                                closeModal();
-                                }
-                                });
-                                </script>
+        <div class="flex flex-col items-center gap-4">
+            <!-- Updated Footer CTA to trigger Modal -->
+            <button onclick="openModal()"
+                class="cta-button text-white font-bold text-xl px-12 py-5 rounded-lg w-full md:w-auto text-center transform hover:scale-105 transition duration-200">
+                Show Me My 3 Opportunities &rarr;
+            </button>
+            <p class="text-sm text-green-400 font-medium">
+                Last 8 calls found an average $114k in exposed revenue.
+            </p>
+        </div>
+    </footer>
+
+    <!-- 4. MINI PROOF STRIP -->
+    <section class="py-16 bg-white/5 border-y border-white/5">
+        <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
+
+            <div class="flex items-start gap-4">
+                <div>
+                    <p class="text-sm font-bold text-white">"We caught a $120k renewal at risk because CallForge flagged
+                        a 'competitor mention' that wasn't in Salesforce. Saved the deal in 48 hours."</p>
+                    <p class="text-xs text-muted mt-1">— Sarah Jenkins, VP of Customer Success at CloudScale</p>
+                </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+                <div>
+                    <p class="text-sm font-bold text-white">"My reps were wasting hours writing follow-up emails. Now
+                        they just click 'Generate' and get copy that actually sounds like them. It's given us back 20%
+                        of our week."</p>
+                    <p class="text-xs text-muted mt-1">— Marcus Chen, Director of Sales at FinFlow</p>
+                </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+                <div>
+                    <p class="text-sm font-bold text-white">"Finally, a roadmap based on revenue, not just loud
+                        opinions. We prioritized 'SSO Integration' because we saw it was blocking $500k in pipeline."
+                    </p>
+                    <p class="text-xs text-muted mt-1">— Elena Rodriguez, Head of Product at DataSync</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 6. BOOKING MODAL -->
+    <div id="booking-modal"
+        class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/80 backdrop-blur-sm p-4 opacity-0 transition-opacity duration-300">
+        <div
+            class="relative w-full max-w-4xl h-[80vh] bg-white rounded-2xl shadow-2xl overflow-hidden transform scale-95 transition-transform duration-300">
+            <button onclick="closeModal()"
+                class="absolute top-4 right-4 z-10 p-2 bg-white/80 text-gray-600 rounded-full hover:bg-gray-100 transition shadow-sm">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                    </path>
+                </svg>
+            </button>
+            <!-- Google Calendar Appointment Schedule -->
+            <iframe src="https://calendar.app.google/kLWTrRULrtT9zEPV9?gv=true" class="w-full h-full border-0"
+                frameborder="0"></iframe>
+        </div>
+    </div>
+
+    <!-- 7. SCRIPTS -->
+    <script>
+        function openModal() {
+            const modal = document.getElementById('booking-modal');
+            modal.classList.remove('hidden');
+            // Small delay to allow display:block to apply before opacity transition
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                const content = modal.querySelector('div');
+                content.classList.remove('scale-95');
+                content.classList.add('scale-100');
+            }, 10);
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('booking-modal');
+            modal.classList.add('opacity-0');
+            const content = modal.querySelector('div');
+            content.classList.remove('scale-100');
+            content.classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300); // Matches transition duration
+        }
+
+        // Close modal on escape key
+        document.addEventListener('keydown', function (event) {
+            if (event.key === "Escape") {
+                closeModal();
+            }
+        });
+
+        // Close modal on clicking outside
+        document.getElementById('booking-modal').addEventListener('click', function (event) {
+            if (event.target === this) {
+                closeModal();
+            }
+        });
+    </script>
 
 </body>
 
