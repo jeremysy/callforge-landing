@@ -76,32 +76,33 @@
 <body class="antialiased selection:bg-signal selection:text-white">
 
     <!-- 1. URGENCY BAR -->
-    <div class="bg-red-600 text-white text-xs font-bold py-2 px-4 text-center tracking-wide sticky top-0 z-50">
-        ⚠️ Only 5 scoping calls left this week — claim yours before they’re gone
+    <div
+        class="bg-blue-900/30 border-b border-blue-500/20 text-blue-200 text-xs font-bold py-2 px-4 text-center tracking-wide sticky top-0 z-50 backdrop-blur-md">
+        ✨ Limited Beta Access — 5 scoping calls released for this week
     </div>
 
     <!-- 2. HERO SECTION -->
-    <header class="pt-16 pb-20 px-6 max-w-5xl mx-auto text-center relative">
+    <header class="pt-24 pb-32 px-6 max-w-5xl mx-auto text-center relative">
         <!-- Subtle Glow -->
         <div
             class="absolute top-20 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-blue-500/10 rounded-full blur-[100px] -z-10 pointer-events-none">
         </div>
 
-        <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-6 leading-[1.1]">
+        <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-8 leading-[1.1]">
             Your calls already know <br class="hidden md:block" />
             <span class="text-transparent bg-clip-text bg-gradient-to-r from-gray-100 to-gray-400">why you lose
                 deals.</span>
         </h1>
 
-        <p class="text-lg md:text-xl text-muted font-medium mb-10 max-w-2xl mx-auto leading-relaxed">
+        <p class="text-xl md:text-2xl text-muted font-medium mb-12 max-w-3xl mx-auto leading-relaxed">
             We turn every call transcript + your company data into <span class="text-white border-b border-white/20">3
                 strategic assets</span> that drive efficiency and protect MRR.
         </p>
 
-        <div class="flex flex-col items-center gap-4">
+        <div class="flex flex-col items-center gap-6">
             <!-- Updated CTA to trigger Modal -->
             <button onclick="openModal()"
-                class="cta-button text-white font-bold text-lg md:text-xl px-8 py-5 rounded-lg w-full md:w-auto text-center">
+                class="cta-button text-white font-bold text-lg md:text-xl px-10 py-6 rounded-xl w-full md:w-auto text-center shadow-2xl shadow-orange-500/20">
                 Show Me My 3 Hidden Opportunities &rarr;
             </button>
 
@@ -115,19 +116,37 @@
         </div>
     </header>
 
+    <!-- 2.5 THE PROBLEM (NARRATIVE BRIDGE) -->
+    <section class="py-20 bg-white/5 border-y border-white/5">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-sm font-mono text-red-400 font-bold uppercase tracking-widest mb-4">The Problem</h2>
+            <h3 class="text-3xl md:text-4xl font-bold text-white mb-6">The "Black Box" of Revenue</h3>
+            <p class="text-lg text-muted leading-relaxed">
+                You have thousands of hours of call recordings.
+                <span class="text-white">But they are a black box.</span>
+                You don't know why deals stall, why customers churn, or what features they're actually begging for.
+                <br><br>
+                You're relying on anecdotal notes in Salesforce.
+                <span class="text-white">We fix that by turning your unstructured conversations into structured
+                    data.</span>
+            </p>
+        </div>
+    </section>
+
     <!-- 3. THE 3 EXAMPLES (CORE) -->
-    <section class="py-12 px-4 md:px-6 space-y-24 max-w-6xl mx-auto">
+    <section class="py-24 px-4 md:px-6 space-y-32 max-w-6xl mx-auto">
 
         <!-- EXAMPLE 1: CHURN DEFENSE -->
-        <div class="grid lg:grid-cols-2 gap-8 items-center">
-            <div class="order-2 lg:order-1 space-y-4">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div class="order-2 lg:order-1 space-y-6">
                 <div class="flex items-center gap-2 text-signal font-mono text-xs font-bold uppercase tracking-wider">
-                    <span class="w-2 h-2 rounded-full bg-signal"></span> Opportunity 1: Early Churn Detection
+                    <span class="w-2 h-2 rounded-full bg-signal"></span> Step 1: Detect
                 </div>
-                <h2 class="text-3xl md:text-4xl font-bold text-white">Identify churn risk 90 days out—combining call
-                    sentiment with contract data.</h2>
-                <p class="text-muted text-lg">We don't just listen for "cancel". We detect the subtle friction points
-                    and cross-reference them with usage data and contract terms to predict churn months in advance.</p>
+                <h2 class="text-3xl md:text-4xl font-bold text-white leading-tight">Identify churn risk 90 days
+                    out—combining sentiment with data.</h2>
+                <p class="text-muted text-lg leading-relaxed">We don't just listen for "cancel". We detect the subtle
+                    friction points and cross-reference them with usage data and contract terms to predict churn months
+                    in advance.</p>
                 <div class="pt-4 flex items-center gap-2 text-xs font-mono text-green-400">
                     <span class="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"></span>
                     This runs inside your environment in &lt;7 days.
@@ -138,12 +157,12 @@
             <div class="order-1 lg:order-2 relative group">
                 <!-- BEFORE: Raw Transcript -->
                 <div
-                    class="absolute -left-4 -top-6 w-3/4 bg-white/5 border border-white/10 p-4 rounded-lg blur-[1px] opacity-60 scale-95 origin-bottom-right z-0">
-                    <div class="flex gap-2 mb-2">
+                    class="absolute -left-4 -top-6 w-3/4 bg-white/5 border border-white/10 p-6 rounded-xl blur-[1px] opacity-60 scale-95 origin-bottom-right z-0">
+                    <div class="flex gap-2 mb-3">
                         <div class="w-2 h-2 bg-red-500 rounded-full"></div>
                         <div class="w-2 h-2 bg-yellow-500 rounded-full"></div>
                     </div>
-                    <div class="space-y-2 font-mono text-[10px] text-gray-400">
+                    <div class="space-y-3 font-mono text-[10px] text-gray-400">
                         <p><span class="text-blue-400">Customer:</span> We're just reviewing all our tool spend for
                             Q4...</p>
                         <p><span class="text-green-400">CSM:</span> Makes sense. How are the new seats working out?</p>
@@ -152,8 +171,8 @@
 
                 <!-- AFTER: Slack Alert -->
                 <div
-                    class="relative z-10 bg-[#1A1D21] border border-white/10 rounded-lg p-5 shadow-2xl mockup-shadow transform transition group-hover:-translate-y-1">
-                    <div class="flex items-center gap-3 mb-4 border-b border-white/5 pb-3">
+                    class="relative z-10 bg-[#1A1D21] border border-white/10 rounded-xl p-6 shadow-2xl mockup-shadow transform transition group-hover:-translate-y-1">
+                    <div class="flex items-center gap-3 mb-4 border-b border-white/5 pb-4">
                         <div class="w-8 h-8 bg-red-500 rounded flex items-center justify-center text-white font-bold">!
                         </div>
                         <div>
@@ -161,7 +180,7 @@
                             <div class="text-[10px] text-gray-500">APP • Today at 2:04 PM</div>
                         </div>
                     </div>
-                    <div class="space-y-3">
+                    <div class="space-y-4">
                         <div class="bg-red-500/10 border-l-2 border-red-500 p-3 text-xs text-gray-300">
                             <strong>TechFlow Inc</strong> mentioned "Tool Review" + "Consolidation".
                         </div>
@@ -184,12 +203,12 @@
         </div>
 
         <!-- EXAMPLE 2: EMAIL COPY WRITING -->
-        <div class="grid lg:grid-cols-2 gap-8 items-center">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
             <!-- Visual -->
             <div class="relative group">
                 <!-- BEFORE: Generic Email -->
                 <div
-                    class="absolute -right-4 -top-6 w-3/4 bg-white text-black p-4 rounded-lg blur-[1px] opacity-40 scale-95 origin-bottom-left z-0">
+                    class="absolute -right-4 -top-6 w-3/4 bg-white text-black p-6 rounded-xl blur-[1px] opacity-40 scale-95 origin-bottom-left z-0">
                     <div class="text-[10px] font-bold uppercase text-gray-400 mb-2">Old Campaign: "Efficiency"</div>
                     <div class="text-xs font-bold mb-1">Subject: Boost your efficiency today</div>
                     <div class="h-1 w-full bg-gray-200 mb-1"></div>
@@ -199,7 +218,7 @@
 
                 <!-- AFTER: Data-Driven Email -->
                 <div
-                    class="relative z-10 bg-[#18181B] border border-white/10 rounded-lg p-5 shadow-2xl mockup-shadow transform transition group-hover:-translate-y-1">
+                    class="relative z-10 bg-[#18181B] border border-white/10 rounded-xl p-6 shadow-2xl mockup-shadow transform transition group-hover:-translate-y-1">
                     <div class="flex justify-between items-center mb-4">
                         <div class="text-xs font-bold text-blue-400 uppercase tracking-wider flex items-center gap-2">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -212,7 +231,7 @@
                         <div class="text-[10px] bg-green-500/10 text-green-400 px-2 py-1 rounded">+210% Open Rate</div>
                     </div>
 
-                    <div class="space-y-3">
+                    <div class="space-y-4">
                         <div class="p-3 bg-white/5 rounded border border-white/5">
                             <div class="text-[10px] text-gray-500 mb-1">New Subject Line:</div>
                             <div class="text-sm font-bold text-white">"Stop wasting 4 hours on exports"</div>
@@ -231,14 +250,14 @@
                 </div>
             </div>
 
-            <div class="space-y-4">
+            <div class="space-y-6">
                 <div class="flex items-center gap-2 text-signal font-mono text-xs font-bold uppercase tracking-wider">
-                    <span class="w-2 h-2 rounded-full bg-signal"></span> Opportunity 2: Automated Copywriting
+                    <span class="w-2 h-2 rounded-full bg-signal"></span> Step 2: Automate
                 </div>
-                <h2 class="text-3xl md:text-4xl font-bold text-white">Write marketing copy using your customers' actual
-                    vocabulary.</h2>
-                <p class="text-muted text-lg">We analyze thousands of hours of sales calls to find the exact words,
-                    pains, and phrases your customers use—then write emails that actually get opened.</p>
+                <h2 class="text-3xl md:text-4xl font-bold text-white leading-tight">Write marketing copy using your
+                    customers' actual vocabulary.</h2>
+                <p class="text-muted text-lg leading-relaxed">We analyze thousands of hours of sales calls to find the
+                    exact words, pains, and phrases your customers use—then write emails that actually get opened.</p>
                 <div class="pt-4 flex items-center gap-2 text-xs font-mono text-green-400">
                     <span class="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"></span>
                     This runs inside your environment in &lt;7 days.
@@ -247,15 +266,15 @@
         </div>
 
         <!-- EXAMPLE 3: ROADMAP GOLDMINE -->
-        <div class="grid lg:grid-cols-2 gap-8 items-center">
-            <div class="order-2 lg:order-1 space-y-4">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div class="order-2 lg:order-1 space-y-6">
                 <div class="flex items-center gap-2 text-signal font-mono text-xs font-bold uppercase tracking-wider">
-                    <span class="w-2 h-2 rounded-full bg-signal"></span> Opportunity 3: Revenue-Ranked Roadmap
+                    <span class="w-2 h-2 rounded-full bg-signal"></span> Step 3: Build
                 </div>
-                <h2 class="text-3xl md:text-4xl font-bold text-white">Stop guessing what to build. Ship what customers
-                    are begging for.</h2>
-                <p class="text-muted text-lg">We link every feature request to the dollar value of the customer asking
-                    for it. Build what makes money.</p>
+                <h2 class="text-3xl md:text-4xl font-bold text-white leading-tight">Stop guessing what to build. Ship
+                    what customers are begging for.</h2>
+                <p class="text-muted text-lg leading-relaxed">We link every feature request to the dollar value of the
+                    customer asking for it. Build what makes money.</p>
                 <div class="pt-4 flex items-center gap-2 text-xs font-mono text-green-400">
                     <span class="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"></span>
                     This runs inside your environment in &lt;7 days.
@@ -266,7 +285,7 @@
             <div class="order-1 lg:order-2 relative group">
                 <!-- BEFORE: Ticket List -->
                 <div
-                    class="absolute -left-4 -top-6 w-3/4 bg-white/5 border border-white/10 p-4 rounded-lg blur-[1px] opacity-60 scale-95 origin-bottom-right z-0">
+                    class="absolute -left-4 -top-6 w-3/4 bg-white/5 border border-white/10 p-6 rounded-xl blur-[1px] opacity-60 scale-95 origin-bottom-right z-0">
                     <div class="space-y-2">
                         <div class="h-2 bg-gray-700 rounded w-full"></div>
                         <div class="h-2 bg-gray-700 rounded w-full"></div>
@@ -276,7 +295,7 @@
 
                 <!-- AFTER: Ranked Table -->
                 <div
-                    class="relative z-10 bg-[#0F1115] border border-white/10 rounded-lg overflow-hidden shadow-2xl mockup-shadow transform transition group-hover:-translate-y-1">
+                    class="relative z-10 bg-[#0F1115] border border-white/10 rounded-xl overflow-hidden shadow-2xl mockup-shadow transform transition group-hover:-translate-y-1">
                     <div class="bg-white/5 px-4 py-3 border-b border-white/5 flex justify-between items-center">
                         <span class="text-xs font-bold text-white">Revenue-Ranked Roadmap</span>
                         <span class="text-[10px] text-gray-500 font-mono">SORT: ARR IMPACT</span>
@@ -331,19 +350,19 @@
     </section>
 
     <!-- 5. FINAL SCREEN (CTA) -->
-    <footer class="py-24 px-6 text-center max-w-3xl mx-auto">
-        <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-6 leading-tight">Want to see how combining and
-            analyzing these data treasures unlocks hidden revenue?</h2>
-        <p class="text-lg text-muted mb-10 leading-relaxed">
+    <footer class="py-32 px-6 text-center max-w-4xl mx-auto">
+        <h2 class="text-4xl md:text-6xl font-extrabold text-white mb-8 leading-tight">Ready to unlock the revenue hiding
+            in your logs?</h2>
+        <p class="text-xl text-muted mb-12 leading-relaxed max-w-2xl mx-auto">
             20-min call. We’ll audit your revenue stack and tell you exactly what’s hiding in your logs.
             <br class="hidden md:block" />
             <span class="text-white">If it’s not worth at least 10× the build cost, we won’t charge you.</span>
         </p>
 
-        <div class="flex flex-col items-center gap-4">
+        <div class="flex flex-col items-center gap-6">
             <!-- Updated Footer CTA to trigger Modal -->
             <button onclick="openModal()"
-                class="cta-button text-white font-bold text-xl px-12 py-5 rounded-lg w-full md:w-auto text-center transform hover:scale-105 transition duration-200">
+                class="cta-button text-white font-bold text-xl px-12 py-6 rounded-xl w-full md:w-auto text-center transform hover:scale-105 transition duration-200 shadow-2xl shadow-orange-500/20">
                 Show Me My 3 Opportunities &rarr;
             </button>
             <p class="text-sm text-green-400 font-medium">
@@ -353,35 +372,52 @@
     </footer>
 
     <!-- 4. MINI PROOF STRIP -->
-    <section class="py-16 bg-white/5 border-y border-white/5">
-        <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
+    <section class="py-20 bg-white/5 border-t border-white/5">
+        <div class="max-w-6xl mx-auto px-6">
+            <h4 class="text-center text-xs font-mono text-gray-500 uppercase tracking-widest mb-12">Trusted by Revenue
+                Leaders</h4>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
 
-            <div class="flex items-start gap-4">
-                <div>
-                    <p class="text-sm font-bold text-white">"We caught a $120k renewal at risk because CallForge flagged
-                        a 'competitor mention' that wasn't in Salesforce. Saved the deal in 48 hours."</p>
-                    <p class="text-xs text-muted mt-1">— Sarah Jenkins, VP of Customer Success at CloudScale</p>
-                </div>
-            </div>
-
-            <div class="flex items-start gap-4">
-                <div>
-                    <p class="text-sm font-bold text-white">"My reps were wasting hours writing follow-up emails. Now
-                        they just click 'Generate' and get copy that actually sounds like them. It's given us back 20%
-                        of our week."</p>
-                    <p class="text-xs text-muted mt-1">— Marcus Chen, Director of Sales at FinFlow</p>
-                </div>
-            </div>
-
-            <div class="flex items-start gap-4">
-                <div>
-                    <p class="text-sm font-bold text-white">"Finally, a roadmap based on revenue, not just loud
-                        opinions. We prioritized 'SSO Integration' because we saw it was blocking $500k in pipeline."
+                <div class="flex flex-col gap-4">
+                    <p class="text-lg font-medium text-white leading-relaxed">"We caught a $120k renewal at risk because
+                        CallForge flagged a 'competitor mention' that wasn't in Salesforce. Saved the deal in 48 hours."
                     </p>
-                    <p class="text-xs text-muted mt-1">— Elena Rodriguez, Head of Product at DataSync</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 bg-gray-700 rounded-full"></div>
+                        <div>
+                            <p class="text-sm font-bold text-white">Sarah Jenkins</p>
+                            <p class="text-xs text-muted">VP of Customer Success, CloudScale</p>
+                        </div>
+                    </div>
                 </div>
-            </div>
 
+                <div class="flex flex-col gap-4">
+                    <p class="text-lg font-medium text-white leading-relaxed">"My reps were wasting hours writing
+                        follow-up emails. Now they just click 'Generate' and get copy that actually sounds like them.
+                        It's given us back 20% of our week."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 bg-gray-700 rounded-full"></div>
+                        <div>
+                            <p class="text-sm font-bold text-white">Marcus Chen</p>
+                            <p class="text-xs text-muted">Director of Sales, FinFlow</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col gap-4">
+                    <p class="text-lg font-medium text-white leading-relaxed">"Finally, a roadmap based on revenue, not
+                        just loud opinions. We prioritized 'SSO Integration' because we saw it was blocking $500k in
+                        pipeline."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 bg-gray-700 rounded-full"></div>
+                        <div>
+                            <p class="text-sm font-bold text-white">Elena Rodriguez</p>
+                            <p class="text-xs text-muted">Head of Product, DataSync</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </section>
 
