@@ -17,6 +17,12 @@
     <nav class="sticky top-0 z-40 bg-[#020617]/80 backdrop-blur-md border-b border-white/5">
         <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
             <span class="text-xl font-bold text-white">CallForgr</span>
+            <div class="hidden md:flex items-center gap-6">
+                <a href="#services" class="text-gray-400 hover:text-white text-sm">Services</a>
+                <a href="#examples" class="text-gray-400 hover:text-white text-sm">Case Studies</a>
+                <a href="#insights" class="text-gray-400 hover:text-white text-sm">Insights</a>
+                <a href="#contact" class="text-gray-400 hover:text-white text-sm">Contact</a>
+            </div>
             <a href="https://x.com/callforg" target="_blank" class="text-gray-400 hover:text-white">@callforg</a>
         </div>
     </nav>
@@ -31,10 +37,10 @@
             <h2 class="text-2xl font-bold text-white mb-4">Hey, I'm Sylvio</h2>
             <p class="text-gray-400 mb-4">20 years in tech. I lived through the "digital transformation" and "data transformation" hype cycles - watched companies spend millions on consultants delivering PowerPoints instead of results.</p>
             <p class="text-gray-400 mb-4">AI is different. It actually delivers what those buzzwords promised. I build practical automation that works - voice agents that book calls, data pipelines that eliminate manual entry, workflows that run while you sleep. No fluff, just systems that save real hours.</p>
-            <div class="flex items-center gap-4 mt-6">
-                <a href="https://x.com/callforg" target="_blank" class="text-orange-500 hover:text-orange-400 font-medium">Follow me on X</a>
+            <div class="flex flex-wrap items-center gap-4 mt-6">
+                <a href="https://x.com/callforg" target="_blank" class="text-orange-500 hover:text-orange-400 font-medium">X</a>
                 <span class="text-gray-600">|</span>
-                <span class="text-gray-500 text-sm">Based in the US. Working globally.</span>
+                <a href="https://www.linkedin.com/in/sylvan-grunwald-24a57b3/" target="_blank" class="text-orange-500 hover:text-orange-400 font-medium">LinkedIn</a>
             </div>
         </div>
     </section>
@@ -86,10 +92,10 @@
         </div>
     </section>
 
-    <section class="py-24 px-6 bg-gradient-to-b from-transparent to-white/[0.02]">
+    <section id="examples" class="py-24 px-6 bg-gradient-to-b from-transparent to-white/[0.02]">
         <div class="max-w-6xl mx-auto">
-            <h2 class="text-3xl font-bold text-white text-center mb-4">Example Workflows</h2>
-            <p class="text-gray-400 text-center mb-16">Automations I have built for clients</p>
+            <h2 class="text-3xl font-bold text-white text-center mb-4">Case Studies</h2>
+            <p class="text-gray-400 text-center mb-16">Real automations delivering real results</p>
             <div class="grid md:grid-cols-2 gap-6">
                 <div class="flex gap-4 items-start p-6 bg-white/5 rounded-xl border border-white/10">
                     <div class="text-orange-500 font-bold text-xl">01</div>
@@ -157,6 +163,53 @@
             <span class="px-6 py-3 rounded-full bg-white/5 border border-white/10 text-gray-400">Python</span>
         </div>
     </section>
+    <section id="insights" class="py-24 px-6 max-w-6xl mx-auto">
+        <h2 class="text-3xl font-bold text-white text-center mb-4">Insights</h2>
+        <p class="text-gray-400 text-center mb-16">Lessons from 20 years of automation projects</p>
+        <div class="grid md:grid-cols-3 gap-6">
+            <a href="blog/why-ai-agents-fail.html" class="group bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-orange-500/30 transition-colors">
+                <div class="h-48 bg-gradient-to-br from-orange-500/20 to-red-500/20 flex items-center justify-center text-5xl">AI</div>
+                <div class="p-6">
+                    <span class="text-orange-500 text-xs font-medium uppercase tracking-wide">AI Agents</span>
+                    <h3 class="text-lg font-bold text-white mt-2 mb-3 group-hover:text-orange-400 transition-colors">Why 80% of AI Agent Projects Fail</h3>
+                    <p class="text-gray-500 text-sm">The hard lessons from building AI agents for businesses.</p>
+                </div>
+            </a>
+            <a href="blog/call-transcripts-roadmap.html" class="group bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-orange-500/30 transition-colors">
+                <div class="h-48 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 flex items-center justify-center text-5xl">Call</div>
+                <div class="p-6">
+                    <span class="text-orange-500 text-xs font-medium uppercase tracking-wide">Call Intelligence</span>
+                    <h3 class="text-lg font-bold text-white mt-2 mb-3 group-hover:text-orange-400 transition-colors">Turn Call Transcripts Into Your Product Roadmap</h3>
+                    <p class="text-gray-500 text-sm">Stop guessing what customers want. The data is in your calls.</p>
+                </div>
+            </a>
+            <a href="blog/death-of-data-entry.html" class="group bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-orange-500/30 transition-colors">
+                <div class="h-48 bg-gradient-to-br from-green-500/20 to-emerald-500/20 flex items-center justify-center text-5xl">Data</div>
+                <div class="p-6">
+                    <span class="text-orange-500 text-xs font-medium uppercase tracking-wide">Data Automation</span>
+                    <h3 class="text-lg font-bold text-white mt-2 mb-3 group-hover:text-orange-400 transition-colors">The Death of Data Entry</h3>
+                    <p class="text-gray-500 text-sm">Why your team should never copy-paste again.</p>
+                </div>
+            </a>
+            <a href="blog/ai-customer-support.html" class="group bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-orange-500/30 transition-colors">
+                <div class="h-48 bg-gradient-to-br from-purple-500/20 to-pink-500/20 flex items-center justify-center text-5xl">Support</div>
+                <div class="p-6">
+                    <span class="text-orange-500 text-xs font-medium uppercase tracking-wide">Customer Support</span>
+                    <h3 class="text-lg font-bold text-white mt-2 mb-3 group-hover:text-orange-400 transition-colors">AI Support: The 4-Minute Response Revolution</h3>
+                    <p class="text-gray-500 text-sm">90% of customers want instant response. Here's how to deliver it.</p>
+                </div>
+            </a>
+            <a href="blog/lead-enrichment-ai.html" class="group bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-orange-500/30 transition-colors">
+                <div class="h-48 bg-gradient-to-br from-yellow-500/20 to-amber-500/20 flex items-center justify-center text-5xl">Sales</div>
+                <div class="p-6">
+                    <span class="text-orange-500 text-xs font-medium uppercase tracking-wide">Sales Intelligence</span>
+                    <h3 class="text-lg font-bold text-white mt-2 mb-3 group-hover:text-orange-400 transition-colors">The $50K Lead Your Team Is Ignoring</h3>
+                    <p class="text-gray-500 text-sm">How AI lead enrichment turns cold lists into closed deals.</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
     <section id="contact" class="py-32 px-6 text-center max-w-4xl mx-auto">
         <h2 class="text-4xl font-extrabold text-white mb-8">Ready to automate your business?</h2>
         <p class="text-xl text-gray-400 mb-12">Book a free 30-minute consultation.</p>
