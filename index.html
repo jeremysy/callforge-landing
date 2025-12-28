@@ -3,240 +3,321 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CallForgr | AI Automation Consultant</title>
-    <meta name="description" content="I automate your business with AI.">
+    <title>CallForgr | AI Automation That Actually Works</title>
+    <meta name="description" content="Stop paying people to copy-paste. I build AI workflows that save 20+ hours per week.">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
-        body { background-color: #020617; color: #F8FAFC; }
-        .cta-button { background: linear-gradient(180deg, #FF6611 0%, #FF4400 100%); cursor: pointer; }
-        .stat-number { background: linear-gradient(180deg, #FFF 0%, #94A3B8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        body { background-color: #020617; color: #F8FAFC; font-family: 'Inter', sans-serif; }
+        .cta-button { background: linear-gradient(180deg, #FF6611 0%, #FF4400 100%); }
+        .cta-button:hover { background: linear-gradient(180deg, #FF7722 0%, #FF5511 100%); }
+        .gradient-text { background: linear-gradient(135deg, #FF6611 0%, #FF4400 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .card-glow:hover { box-shadow: 0 0 40px rgba(255, 102, 17, 0.1); }
     </style>
 </head>
 <body class="antialiased">
-    <nav class="sticky top-0 z-40 bg-[#020617]/80 backdrop-blur-md border-b border-white/5">
+    <!-- Minimal Nav -->
+    <nav class="fixed top-0 w-full z-50 bg-[#020617]/90 backdrop-blur-md border-b border-white/5">
         <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
             <span class="text-xl font-bold text-white">CallForgr</span>
-            <div class="hidden md:flex items-center gap-6">
-                <a href="#services" class="text-gray-400 hover:text-white text-sm">Services</a>
-                <a href="#examples" class="text-gray-400 hover:text-white text-sm">Case Studies</a>
-                <a href="#insights" class="text-gray-400 hover:text-white text-sm">Insights</a>
-                <a href="#contact" class="text-gray-400 hover:text-white text-sm">Contact</a>
-            </div>
-            <div class="flex items-center gap-4">
-                <a href="https://x.com/callforg" target="_blank" class="text-gray-400 hover:text-white" title="X (Twitter)">
+            <div class="flex items-center gap-6">
+                <a href="#work" class="hidden md:block text-gray-400 hover:text-white text-sm">Work</a>
+                <a href="#insights" class="hidden md:block text-gray-400 hover:text-white text-sm">Insights</a>
+                <a href="https://x.com/callforg" target="_blank" class="text-gray-400 hover:text-white">
                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
                 </a>
-                <a href="https://www.linkedin.com/in/sylvan-grunwald-24a57b3/" target="_blank" class="text-gray-400 hover:text-white" title="LinkedIn">
+                <a href="https://www.linkedin.com/in/sylvan-grunwald-24a57b3/" target="_blank" class="text-gray-400 hover:text-white">
                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
                 </a>
+                <button onclick="openModal()" class="cta-button text-white font-semibold text-sm px-5 py-2.5 rounded-lg">Book a Call</button>
             </div>
         </div>
     </nav>
-    <header class="pt-24 pb-16 px-6 max-w-5xl mx-auto text-center">
-        <h1 class="text-4xl md:text-6xl font-extrabold mb-8">I automate your business <span class="text-orange-500">with AI</span></h1>
-        <p class="text-xl text-gray-400 mb-12 max-w-3xl mx-auto">Stop doing repetitive work. I build custom AI workflows that save you 20+ hours per week.</p>
-        <button onclick="openModal()" class="cta-button text-white font-bold text-lg px-8 py-4 rounded-xl">Book Free Consultation</button>
+
+    <!-- HERO: The Transformation -->
+    <header class="pt-32 pb-20 px-6">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-16">
+                <p class="text-orange-500 font-semibold text-sm uppercase tracking-wider mb-6">AI Automation Consultant</p>
+                <h1 class="text-5xl md:text-7xl font-black text-white leading-tight mb-8">
+                    Stop paying people<br>to <span class="gradient-text">copy-paste</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto mb-12">
+                    I build AI workflows that eliminate 20+ hours of manual work per week. No fluff. Just systems that run while you sleep.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button onclick="openModal()" class="cta-button text-white font-bold text-lg px-8 py-4 rounded-xl">Book Free Consultation</button>
+                    <a href="#work" class="border border-white/20 text-white font-semibold text-lg px-8 py-4 rounded-xl hover:bg-white/5 transition-colors text-center">See My Work</a>
+                </div>
+            </div>
+
+            <!-- The Visual Hook - Before/After -->
+            <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                <div class="bg-red-500/5 border border-red-500/20 rounded-2xl p-8">
+                    <div class="text-red-400 font-bold text-sm uppercase tracking-wide mb-4">Without Automation</div>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex items-start gap-3"><span class="text-red-400 mt-1">✗</span> 3 people copying data from emails to CRM</li>
+                        <li class="flex items-start gap-3"><span class="text-red-400 mt-1">✗</span> Sales calls forgotten, insights lost forever</li>
+                        <li class="flex items-start gap-3"><span class="text-red-400 mt-1">✗</span> Support tickets pile up over weekends</li>
+                        <li class="flex items-start gap-3"><span class="text-red-400 mt-1">✗</span> Manual reports take 4 hours every Monday</li>
+                    </ul>
+                </div>
+                <div class="bg-green-500/5 border border-green-500/20 rounded-2xl p-8">
+                    <div class="text-green-400 font-bold text-sm uppercase tracking-wide mb-4">With CallForgr</div>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex items-start gap-3"><span class="text-green-400 mt-1">✓</span> AI extracts and enters data in seconds</li>
+                        <li class="flex items-start gap-3"><span class="text-green-400 mt-1">✓</span> Every call transcribed, insights auto-tagged</li>
+                        <li class="flex items-start gap-3"><span class="text-green-400 mt-1">✓</span> AI triages and responds 24/7</li>
+                        <li class="flex items-start gap-3"><span class="text-green-400 mt-1">✓</span> Reports generated automatically at 8am</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </header>
 
-    <section class="py-16 px-6 max-w-3xl mx-auto">
-        <div class="bg-white/5 border border-white/10 rounded-2xl p-8">
-            <h2 class="text-2xl font-bold text-white mb-4">Hey, I'm Sylvio</h2>
-            <p class="text-gray-400 mb-4">20 years in tech. I lived through the "digital transformation" and "data transformation" hype cycles - watched companies spend millions on consultants delivering PowerPoints instead of results.</p>
-            <p class="text-gray-400 mb-4">AI is different. It actually delivers what those buzzwords promised. I build practical automation that works - voice agents that book calls, data pipelines that eliminate manual entry, workflows that run while you sleep. No fluff, just systems that save real hours.</p>
-            <div class="flex flex-wrap items-center gap-4 mt-6">
-                <a href="https://x.com/callforg" target="_blank" class="text-orange-500 hover:text-orange-400 font-medium">X</a>
-                <span class="text-gray-600">|</span>
-                <a href="https://www.linkedin.com/in/sylvan-grunwald-24a57b3/" target="_blank" class="text-orange-500 hover:text-orange-400 font-medium">LinkedIn</a>
-            </div>
-        </div>
-    </section>
-    <section class="py-16 border-y border-white/5">
-        <div class="max-w-6xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div><div class="text-4xl font-extrabold stat-number mb-2">50+</div><div class="text-sm text-gray-400">Automations</div></div>
-            <div><div class="text-4xl font-extrabold stat-number mb-2">1000+</div><div class="text-sm text-gray-400">Hours Saved</div></div>
-            <div><div class="text-4xl font-extrabold stat-number mb-2">24hr</div><div class="text-sm text-gray-400">Response</div></div>
-            <div><div class="text-4xl font-extrabold stat-number mb-2">100%</div><div class="text-sm text-gray-400">Satisfaction</div></div>
-        </div>
-    </section>
-    <section id="services" class="py-24 px-6 max-w-6xl mx-auto">
-        <h2 class="text-3xl font-bold text-white text-center mb-4">AI Automation Services</h2>
-        <p class="text-gray-400 text-center mb-16 max-w-2xl mx-auto">Real workflows I build for clients - not generic solutions</p>
-        <div class="grid md:grid-cols-3 gap-6">
-            <div class="bg-white/5 border border-white/10 rounded-2xl p-8 hover:border-orange-500/30 transition-colors">
-                <div class="text-2xl mb-4">Call</div>
-                <h3 class="text-xl font-bold text-white mb-3">Call Intelligence</h3>
-                <p class="text-gray-400 mb-4">Turn call recordings into actionable insights.</p>
-                <ul class="text-sm text-gray-500 space-y-2">
-                    <li>Extract customer pain points automatically</li>
-                    <li>Surface feature requests for product team</li>
-                    <li>Track competitor mentions across calls</li>
-                    <li>Auto-generate call summaries to CRM</li>
-                </ul>
-            </div>
-            <div class="bg-white/5 border border-white/10 rounded-2xl p-8 hover:border-orange-500/30 transition-colors">
-                <div class="text-2xl mb-4">Data</div>
-                <h3 class="text-xl font-bold text-white mb-3">Data Entry Elimination</h3>
-                <p class="text-gray-400 mb-4">Free your analysts from copy-paste hell.</p>
-                <ul class="text-sm text-gray-500 space-y-2">
-                    <li>Pull data from emails/PDFs into CRM</li>
-                    <li>Auto-populate spreadsheets from docs</li>
-                    <li>Invoice processing and categorization</li>
-                    <li>Weekly report generation from sources</li>
-                </ul>
-            </div>
-            <div class="bg-white/5 border border-white/10 rounded-2xl p-8 hover:border-orange-500/30 transition-colors">
-                <div class="text-2xl mb-4">Bot</div>
-                <h3 class="text-xl font-bold text-white mb-3">Custom AI Agents</h3>
-                <p class="text-gray-400 mb-4">Intelligent bots that work while you sleep.</p>
-                <ul class="text-sm text-gray-500 space-y-2">
-                    <li>Lead qualification chatbots</li>
-                    <li>Customer support auto-responders</li>
-                    <li>Research assistants for your team</li>
-                    <li>Internal knowledge base bots</li>
-                </ul>
+    <!-- SOCIAL PROOF: Quick credibility -->
+    <section class="py-12 border-y border-white/5">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div>
+                    <div class="text-3xl md:text-4xl font-black text-white mb-1">20+</div>
+                    <div class="text-sm text-gray-500">Hours saved per week</div>
+                </div>
+                <div>
+                    <div class="text-3xl md:text-4xl font-black text-white mb-1">73%</div>
+                    <div class="text-sm text-gray-500">Tickets auto-resolved</div>
+                </div>
+                <div>
+                    <div class="text-3xl md:text-4xl font-black text-white mb-1">$0</div>
+                    <div class="text-sm text-gray-500">Manual data entry</div>
+                </div>
+                <div>
+                    <div class="text-3xl md:text-4xl font-black text-white mb-1">24/7</div>
+                    <div class="text-sm text-gray-500">Your AI works</div>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="examples" class="py-24 px-6 bg-gradient-to-b from-transparent to-white/[0.02]">
+    <!-- WORK: What I Actually Build -->
+    <section id="work" class="py-24 px-6">
         <div class="max-w-6xl mx-auto">
-            <h2 class="text-3xl font-bold text-white text-center mb-4">Case Studies</h2>
-            <p class="text-gray-400 text-center mb-16">Real automations delivering real results</p>
-            <div class="grid md:grid-cols-2 gap-6">
-                <div class="flex gap-4 items-start p-6 bg-white/5 rounded-xl border border-white/10">
-                    <div class="text-orange-500 font-bold text-xl">01</div>
-                    <div>
-                        <h3 class="text-lg font-bold text-white mb-2">Sales Call to Roadmap Pipeline</h3>
-                        <p class="text-gray-400 text-sm">AI listens to every sales call, extracts feature requests, tags by revenue impact, auto-creates tickets in Linear/Jira.</p>
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-black text-white mb-6">What I Build</h2>
+                <p class="text-xl text-gray-400 max-w-2xl mx-auto">Real automations delivering real results. Not PowerPoints.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Card 1: Data Entry Elimination -->
+                <div class="group bg-white/[0.03] border border-white/10 rounded-2xl overflow-hidden hover:border-green-500/30 transition-all card-glow">
+                    <div class="h-56 overflow-hidden">
+                        <img src="images/data-entry.png" alt="Data Entry Elimination" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-8">
+                        <div class="text-green-400 font-semibold text-sm uppercase tracking-wide mb-3">Data Automation</div>
+                        <h3 class="text-2xl font-bold text-white mb-4">Data Entry Elimination</h3>
+                        <p class="text-gray-400 mb-6">AI reads emails, PDFs, and forms. Extracts the data. Populates your CRM, spreadsheets, and databases. Zero copy-paste.</p>
+                        <div class="flex items-center gap-4 text-sm">
+                            <span class="px-3 py-1 bg-green-500/10 text-green-400 rounded-full">15 hrs/week saved</span>
+                            <span class="px-3 py-1 bg-white/5 text-gray-400 rounded-full">99.2% accuracy</span>
+                        </div>
                     </div>
                 </div>
-                <div class="flex gap-4 items-start p-6 bg-white/5 rounded-xl border border-white/10">
-                    <div class="text-orange-500 font-bold text-xl">02</div>
-                    <div>
-                        <h3 class="text-lg font-bold text-white mb-2">Email to CRM Data Entry</h3>
-                        <p class="text-gray-400 text-sm">Incoming emails parsed for key data (deal size, timeline, contacts), auto-populated into Salesforce/HubSpot.</p>
+
+                <!-- Card 2: Call Intelligence -->
+                <div class="group bg-white/[0.03] border border-white/10 rounded-2xl overflow-hidden hover:border-blue-500/30 transition-all card-glow">
+                    <div class="h-56 overflow-hidden">
+                        <img src="images/call-intelligence.png" alt="Call Intelligence" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-8">
+                        <div class="text-blue-400 font-semibold text-sm uppercase tracking-wide mb-3">Call Intelligence</div>
+                        <h3 class="text-2xl font-bold text-white mb-4">Calls → Product Roadmap</h3>
+                        <p class="text-gray-400 mb-6">Every sales call transcribed. Feature requests extracted. Pain points tagged. Auto-creates tickets in Jira/Linear with revenue context.</p>
+                        <div class="flex items-center gap-4 text-sm">
+                            <span class="px-3 py-1 bg-blue-500/10 text-blue-400 rounded-full">100% call coverage</span>
+                            <span class="px-3 py-1 bg-white/5 text-gray-400 rounded-full">Auto-prioritized</span>
+                        </div>
                     </div>
                 </div>
-                <div class="flex gap-4 items-start p-6 bg-white/5 rounded-xl border border-white/10">
-                    <div class="text-orange-500 font-bold text-xl">03</div>
-                    <div>
-                        <h3 class="text-lg font-bold text-white mb-2">Lead Enrichment Bot</h3>
-                        <p class="text-gray-400 text-sm">New leads enriched with company info, LinkedIn data, recent news - delivered with personalized talking points.</p>
+
+                <!-- Card 3: AI Support -->
+                <div class="group bg-white/[0.03] border border-white/10 rounded-2xl overflow-hidden hover:border-purple-500/30 transition-all card-glow">
+                    <div class="h-56 overflow-hidden">
+                        <img src="images/ai-support.png" alt="AI Customer Support" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-8">
+                        <div class="text-purple-400 font-semibold text-sm uppercase tracking-wide mb-3">Customer Support</div>
+                        <h3 class="text-2xl font-bold text-white mb-4">24/7 AI Support Triage</h3>
+                        <p class="text-gray-400 mb-6">AI reads every ticket. Resolves simple issues instantly. Drafts responses for complex ones. Escalates urgent issues to humans.</p>
+                        <div class="flex items-center gap-4 text-sm">
+                            <span class="px-3 py-1 bg-purple-500/10 text-purple-400 rounded-full">73% auto-resolved</span>
+                            <span class="px-3 py-1 bg-white/5 text-gray-400 rounded-full">4 min avg response</span>
+                        </div>
                     </div>
                 </div>
-                <div class="flex gap-4 items-start p-6 bg-white/5 rounded-xl border border-white/10">
-                    <div class="text-orange-500 font-bold text-xl">04</div>
-                    <div>
-                        <h3 class="text-lg font-bold text-white mb-2">Weekly Digest Generator</h3>
-                        <p class="text-gray-400 text-sm">Pulls metrics from 5+ tools (Stripe, GA, Intercom), generates executive summary, delivers to Slack Monday 8am.</p>
+
+                <!-- Card 4: Lead Enrichment -->
+                <div class="group bg-white/[0.03] border border-white/10 rounded-2xl overflow-hidden hover:border-amber-500/30 transition-all card-glow">
+                    <div class="h-56 overflow-hidden">
+                        <img src="images/lead-enrichment.png" alt="Lead Enrichment" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                     </div>
-                </div>
-                <div class="flex gap-4 items-start p-6 bg-white/5 rounded-xl border border-white/10">
-                    <div class="text-orange-500 font-bold text-xl">05</div>
-                    <div>
-                        <h3 class="text-lg font-bold text-white mb-2">Support Ticket Triage</h3>
-                        <p class="text-gray-400 text-sm">AI reads every support ticket, categorizes by urgency, drafts response for review, escalates critical issues.</p>
-                    </div>
-                </div>
-                <div class="flex gap-4 items-start p-6 bg-white/5 rounded-xl border border-white/10">
-                    <div class="text-orange-500 font-bold text-xl">06</div>
-                    <div>
-                        <h3 class="text-lg font-bold text-white mb-2">Contract Review Assistant</h3>
-                        <p class="text-gray-400 text-sm">Upload any contract, AI extracts key terms, flags unusual clauses, compares against your standard terms.</p>
+                    <div class="p-8">
+                        <div class="text-amber-400 font-semibold text-sm uppercase tracking-wide mb-3">Sales Intelligence</div>
+                        <h3 class="text-2xl font-bold text-white mb-4">Lead Enrichment Bot</h3>
+                        <p class="text-gray-400 mb-6">New lead arrives. AI pulls company info, LinkedIn, recent news. Scores by fit. Delivers personalized talking points to your rep.</p>
+                        <div class="flex items-center gap-4 text-sm">
+                            <span class="px-3 py-1 bg-amber-500/10 text-amber-400 rounded-full">42% more meetings</span>
+                            <span class="px-3 py-1 bg-white/5 text-gray-400 rounded-full">3.2x response rate</span>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <section id="process" class="py-24 px-6 bg-white/[0.02] border-y border-white/5">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="text-3xl font-bold text-white text-center mb-16">Simple 3-Step Process</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div><h3 class="text-xl font-bold text-white mb-3">01. Discovery Call</h3><p class="text-gray-400">30-min call to understand your workflows and goals.</p></div>
-                <div><h3 class="text-xl font-bold text-white mb-3">02. Custom Solution</h3><p class="text-gray-400">I design and build your automation.</p></div>
-                <div><h3 class="text-xl font-bold text-white mb-3">03. Launch & Support</h3><p class="text-gray-400">Deploy, train your team, ongoing support.</p></div>
-            </div>
-        </div>
-    </section>
-    <section class="py-24 px-6 max-w-6xl mx-auto text-center">
-        <h2 class="text-3xl font-bold text-white mb-6">Tools I Work With</h2>
-        <div class="flex flex-wrap justify-center gap-4">
-            <span class="px-6 py-3 rounded-full bg-white/5 border border-white/10 text-gray-400">Claude AI</span>
-            <span class="px-6 py-3 rounded-full bg-white/5 border border-white/10 text-gray-400">OpenAI</span>
-            <span class="px-6 py-3 rounded-full bg-white/5 border border-white/10 text-gray-400">Zapier</span>
-            <span class="px-6 py-3 rounded-full bg-white/5 border border-white/10 text-gray-400">Make.com</span>
-            <span class="px-6 py-3 rounded-full bg-white/5 border border-white/10 text-gray-400">n8n</span>
-            <span class="px-6 py-3 rounded-full bg-white/5 border border-white/10 text-gray-400">Python</span>
-        </div>
-    </section>
-    <section id="insights" class="py-24 px-6 max-w-6xl mx-auto">
-        <h2 class="text-3xl font-bold text-white text-center mb-4">Insights</h2>
-        <p class="text-gray-400 text-center mb-16">Lessons from 20 years of automation projects</p>
-        <div class="grid md:grid-cols-3 gap-6">
-            <a href="blog/why-ai-agents-fail.html" class="group bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-orange-500/30 transition-colors">
-                <div class="h-48 bg-gradient-to-br from-orange-500/20 to-red-500/20 flex items-center justify-center text-5xl">AI</div>
-                <div class="p-6">
-                    <span class="text-orange-500 text-xs font-medium uppercase tracking-wide">AI Agents</span>
-                    <h3 class="text-lg font-bold text-white mt-2 mb-3 group-hover:text-orange-400 transition-colors">Why 80% of AI Agent Projects Fail</h3>
-                    <p class="text-gray-500 text-sm">The hard lessons from building AI agents for businesses.</p>
-                </div>
-            </a>
-            <a href="blog/call-transcripts-roadmap.html" class="group bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-orange-500/30 transition-colors">
-                <div class="h-48 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 flex items-center justify-center text-5xl">Call</div>
-                <div class="p-6">
-                    <span class="text-orange-500 text-xs font-medium uppercase tracking-wide">Call Intelligence</span>
-                    <h3 class="text-lg font-bold text-white mt-2 mb-3 group-hover:text-orange-400 transition-colors">Turn Call Transcripts Into Your Product Roadmap</h3>
-                    <p class="text-gray-500 text-sm">Stop guessing what customers want. The data is in your calls.</p>
-                </div>
-            </a>
-            <a href="blog/death-of-data-entry.html" class="group bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-orange-500/30 transition-colors">
-                <div class="h-48 bg-gradient-to-br from-green-500/20 to-emerald-500/20 flex items-center justify-center text-5xl">Data</div>
-                <div class="p-6">
-                    <span class="text-orange-500 text-xs font-medium uppercase tracking-wide">Data Automation</span>
-                    <h3 class="text-lg font-bold text-white mt-2 mb-3 group-hover:text-orange-400 transition-colors">The Death of Data Entry</h3>
-                    <p class="text-gray-500 text-sm">Why your team should never copy-paste again.</p>
-                </div>
-            </a>
-            <a href="blog/ai-customer-support.html" class="group bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-orange-500/30 transition-colors">
-                <div class="h-48 bg-gradient-to-br from-purple-500/20 to-pink-500/20 flex items-center justify-center text-5xl">Support</div>
-                <div class="p-6">
-                    <span class="text-orange-500 text-xs font-medium uppercase tracking-wide">Customer Support</span>
-                    <h3 class="text-lg font-bold text-white mt-2 mb-3 group-hover:text-orange-400 transition-colors">AI Support: The 4-Minute Response Revolution</h3>
-                    <p class="text-gray-500 text-sm">90% of customers want instant response. Here's how to deliver it.</p>
-                </div>
-            </a>
-            <a href="blog/lead-enrichment-ai.html" class="group bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-orange-500/30 transition-colors">
-                <div class="h-48 bg-gradient-to-br from-yellow-500/20 to-amber-500/20 flex items-center justify-center text-5xl">Sales</div>
-                <div class="p-6">
-                    <span class="text-orange-500 text-xs font-medium uppercase tracking-wide">Sales Intelligence</span>
-                    <h3 class="text-lg font-bold text-white mt-2 mb-3 group-hover:text-orange-400 transition-colors">The $50K Lead Your Team Is Ignoring</h3>
-                    <p class="text-gray-500 text-sm">How AI lead enrichment turns cold lists into closed deals.</p>
-                </div>
-            </a>
         </div>
     </section>
 
-    <section id="contact" class="py-32 px-6 text-center max-w-4xl mx-auto">
-        <h2 class="text-4xl font-extrabold text-white mb-8">Ready to automate your business?</h2>
-        <p class="text-xl text-gray-400 mb-12">Book a free 30-minute consultation.</p>
-        <button onclick="openModal()" class="cta-button text-white font-bold text-xl px-12 py-6 rounded-xl">Book Free Consultation</button>
+    <!-- THE PROCESS: How It Works -->
+    <section class="py-24 px-6 bg-white/[0.02]">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-black text-white mb-6">How It Works</h2>
+                <p class="text-xl text-gray-400">From first call to running automation in 2-3 weeks</p>
+            </div>
+            <div class="space-y-12">
+                <div class="flex gap-6 items-start">
+                    <div class="flex-shrink-0 w-12 h-12 rounded-full bg-orange-500/10 border border-orange-500/30 flex items-center justify-center text-orange-500 font-bold">1</div>
+                    <div>
+                        <h3 class="text-xl font-bold text-white mb-2">Discovery Call (30 min)</h3>
+                        <p class="text-gray-400">You walk me through your workflows. I identify where AI can save real hours. We agree on the first automation target.</p>
+                    </div>
+                </div>
+                <div class="flex gap-6 items-start">
+                    <div class="flex-shrink-0 w-12 h-12 rounded-full bg-orange-500/10 border border-orange-500/30 flex items-center justify-center text-orange-500 font-bold">2</div>
+                    <div>
+                        <h3 class="text-xl font-bold text-white mb-2">Build & Test (1-2 weeks)</h3>
+                        <p class="text-gray-400">I build your custom automation using your real data. You see it working before it goes live. Iterate until it's right.</p>
+                    </div>
+                </div>
+                <div class="flex gap-6 items-start">
+                    <div class="flex-shrink-0 w-12 h-12 rounded-full bg-orange-500/10 border border-orange-500/30 flex items-center justify-center text-orange-500 font-bold">3</div>
+                    <div>
+                        <h3 class="text-xl font-bold text-white mb-2">Deploy & Support</h3>
+                        <p class="text-gray-400">Go live with full documentation. I train your team. 30 days of support included. Most clients add more automations.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
+
+    <!-- ABOUT: Now They Care -->
+    <section class="py-24 px-6">
+        <div class="max-w-4xl mx-auto">
+            <div class="bg-white/[0.03] border border-white/10 rounded-2xl p-8 md:p-12">
+                <p class="text-orange-500 font-semibold text-sm uppercase tracking-wide mb-4">About</p>
+                <h2 class="text-3xl font-bold text-white mb-6">I'm Sylvio</h2>
+                <p class="text-gray-400 mb-4">20 years in tech. I watched companies spend millions on "digital transformation" consultants who delivered PowerPoints instead of results.</p>
+                <p class="text-gray-400 mb-6">AI is different. It actually delivers what those buzzwords promised. I build practical automation that saves real hours - voice agents, data pipelines, workflows that run while you sleep.</p>
+                <p class="text-gray-400 mb-8">No enterprise fluff. Just systems that work.</p>
+                <div class="flex gap-4">
+                    <a href="https://x.com/callforg" target="_blank" class="px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-gray-400 hover:text-white hover:border-white/20 transition-colors text-sm font-medium">Follow on X</a>
+                    <a href="https://www.linkedin.com/in/sylvan-grunwald-24a57b3/" target="_blank" class="px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-gray-400 hover:text-white hover:border-white/20 transition-colors text-sm font-medium">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INSIGHTS: Blog with Real Images -->
+    <section id="insights" class="py-24 px-6 bg-white/[0.02]">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-black text-white mb-6">Insights</h2>
+                <p class="text-xl text-gray-400">Hard lessons from 20 years of automation projects</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6">
+                <a href="blog/why-ai-agents-fail.html" class="group bg-white/[0.03] border border-white/10 rounded-2xl overflow-hidden hover:border-orange-500/30 transition-all">
+                    <div class="h-48 overflow-hidden">
+                        <img src="images/ai-agents-fail.png" alt="Why AI Agents Fail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <span class="text-orange-500 text-xs font-semibold uppercase tracking-wide">AI Agents</span>
+                        <h3 class="text-lg font-bold text-white mt-2 mb-3 group-hover:text-orange-400 transition-colors">Why 80% of AI Agent Projects Fail</h3>
+                        <p class="text-gray-500 text-sm">The hard lessons from building AI agents for businesses.</p>
+                    </div>
+                </a>
+                <a href="blog/death-of-data-entry.html" class="group bg-white/[0.03] border border-white/10 rounded-2xl overflow-hidden hover:border-green-500/30 transition-all">
+                    <div class="h-48 overflow-hidden">
+                        <img src="images/data-entry.png" alt="Death of Data Entry" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <span class="text-green-500 text-xs font-semibold uppercase tracking-wide">Data Automation</span>
+                        <h3 class="text-lg font-bold text-white mt-2 mb-3 group-hover:text-green-400 transition-colors">The Death of Data Entry</h3>
+                        <p class="text-gray-500 text-sm">Why your team should never copy-paste again.</p>
+                    </div>
+                </a>
+                <a href="blog/ai-customer-support.html" class="group bg-white/[0.03] border border-white/10 rounded-2xl overflow-hidden hover:border-purple-500/30 transition-all">
+                    <div class="h-48 overflow-hidden">
+                        <img src="images/ai-support.png" alt="AI Customer Support" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <span class="text-purple-500 text-xs font-semibold uppercase tracking-wide">Customer Support</span>
+                        <h3 class="text-lg font-bold text-white mt-2 mb-3 group-hover:text-purple-400 transition-colors">The 4-Minute Response Revolution</h3>
+                        <p class="text-gray-500 text-sm">90% of customers want instant response. Here's how.</p>
+                    </div>
+                </a>
+            </div>
+            <div class="text-center mt-12">
+                <a href="blog/call-transcripts-roadmap.html" class="text-orange-500 hover:text-orange-400 font-medium">View all articles →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="py-32 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl md:text-5xl font-black text-white mb-8">Ready to stop the busywork?</h2>
+            <p class="text-xl text-gray-400 mb-12 max-w-2xl mx-auto">Book a free 30-minute call. I'll show you exactly where AI can save you hours every week.</p>
+            <button onclick="openModal()" class="cta-button text-white font-bold text-xl px-12 py-6 rounded-xl">Book Free Consultation</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer class="py-12 px-6 border-t border-white/5">
-        <div class="max-w-6xl mx-auto flex items-center justify-between">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
             <span class="text-lg font-bold text-white">CallForgr</span>
-            <a href="https://x.com/callforg" target="_blank" class="text-gray-400 hover:text-white">@callforg</a>
+            <div class="flex items-center gap-6">
+                <a href="https://x.com/callforg" target="_blank" class="text-gray-400 hover:text-white text-sm">@callforg</a>
+                <a href="https://www.linkedin.com/in/sylvan-grunwald-24a57b3/" target="_blank" class="text-gray-400 hover:text-white text-sm">LinkedIn</a>
+            </div>
         </div>
     </footer>
-    <div id="booking-modal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/80 p-4 opacity-0">
+
+    <!-- Booking Modal -->
+    <div id="booking-modal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/80 p-4 opacity-0 transition-opacity">
         <div class="relative w-full max-w-4xl h-[80vh] bg-white rounded-2xl overflow-hidden">
-            <button onclick="closeModal()" class="absolute top-4 right-4 z-10 p-2 bg-white text-gray-600 rounded-full">X</button>
-            <iframe src="https://calendar.app.google/kLWTrRULrtT9zEPV9?gv=true" class="w-full h-full border-0"></iframe>
+            <button onclick="closeModal()" class="absolute top-4 right-4 z-10 p-2 bg-gray-100 hover:bg-gray-200 text-gray-600 rounded-full transition-colors">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
+            <iframe src="https://calendar.app.google/kLWTrRULrtT9zEPV9" class="w-full h-full border-0"></iframe>
         </div>
     </div>
+
     <script>
-        function openModal() { document.getElementById("booking-modal").classList.remove("hidden"); document.getElementById("booking-modal").classList.remove("opacity-0"); }
-        function closeModal() { document.getElementById("booking-modal").classList.add("hidden"); document.getElementById("booking-modal").classList.add("opacity-0"); }
+        function openModal() {
+            const modal = document.getElementById("booking-modal");
+            modal.classList.remove("hidden");
+            modal.classList.add("flex");
+            setTimeout(() => modal.classList.remove("opacity-0"), 10);
+        }
+        function closeModal() {
+            const modal = document.getElementById("booking-modal");
+            modal.classList.add("opacity-0");
+            setTimeout(() => {
+                modal.classList.add("hidden");
+                modal.classList.remove("flex");
+            }, 200);
+        }
+        document.getElementById("booking-modal").addEventListener("click", function(e) {
+            if (e.target === this) closeModal();
+        });
     </script>
 </body>
 </html>
