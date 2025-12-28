@@ -3,28 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CallForgr | AI Automation That Actually Works</title>
-    <meta name="description" content="Your team works 50 hours a week. 15 of them are wasted on work AI can do in seconds.">
+    <title>CallForgr | Full AI Automation</title>
+    <meta name="description" content="Not integrations. Full automation. AI that actually does the work—from start to finish.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         body { background-color: #0F172A; color: #F1F5F9; font-family: 'Inter', sans-serif; }
         .cta-button { background: linear-gradient(180deg, #F97316 0%, #EA580C 100%); box-shadow: 0 4px 20px rgba(249, 115, 22, 0.25); }
         .cta-button:hover { background: linear-gradient(180deg, #FB923C 0%, #F97316 100%); box-shadow: 0 4px 28px rgba(249, 115, 22, 0.35); transform: translateY(-1px); }
-        .hero-gradient { background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(99, 102, 241, 0.15), transparent); }
+        .hero-gradient { background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(249, 115, 22, 0.08), transparent); }
         .stat-highlight { background: linear-gradient(180deg, #FFFFFF 0%, #CBD5E1 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .glow-subtle { box-shadow: 0 0 50px rgba(99, 102, 241, 0.08); }
-        .section-alt { background-color: #1E293B; }
     </style>
 </head>
 <body class="antialiased">
-    <!-- Nav - Clean, minimal -->
-    <nav class="fixed top-0 w-full z-50 bg-[#0A0F1C]/90 backdrop-blur-md border-b border-white/5">
+    <!-- Nav -->
+    <nav class="fixed top-0 w-full z-50 bg-[#0F172A]/90 backdrop-blur-md border-b border-white/5">
         <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-            <span class="text-xl font-bold text-white">CallForgr</span>
+            <a href="/" class="text-xl font-bold text-white hover:text-orange-400 transition-colors">CallForgr</a>
             <div class="flex items-center gap-6">
-                <a href="#solutions" class="hidden md:block text-gray-400 hover:text-white text-sm transition-colors">Solutions</a>
-                <a href="#insights" class="hidden md:block text-gray-400 hover:text-white text-sm transition-colors">Insights</a>
+                <a href="#how-it-works" class="hidden md:block text-gray-400 hover:text-white text-sm transition-colors">How It Works</a>
+                <a href="#examples" class="hidden md:block text-gray-400 hover:text-white text-sm transition-colors">Examples</a>
                 <a href="https://x.com/callforg" target="_blank" class="text-gray-400 hover:text-white transition-colors">
                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
                 </a>
@@ -36,185 +34,214 @@
         </div>
     </nav>
 
-    <!-- HERO: Recognition-Based Hook -->
-    <header class="pt-28 pb-16 px-6 hero-gradient">
-        <div class="max-w-5xl mx-auto">
-            <!-- The Pain Recognition -->
-            <div class="text-center mb-12">
-                <p class="text-indigo-400 font-medium text-sm uppercase tracking-wider mb-8">Does this sound familiar?</p>
-                <h1 class="text-4xl md:text-6xl font-black text-white leading-tight mb-6">
-                    Your team works 50 hours a week.<br>
-                    <span class="text-gray-500">15 of them are wasted.</span>
-                </h1>
-                <p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto">
-                    Copying data between systems. Manually processing the same emails. Building reports that should build themselves. Work that makes you wonder: <em class="text-gray-300">isn't there a better way?</em>
-                </p>
-            </div>
-
-            <!-- The "That's Me" Moments -->
-            <div class="max-w-3xl mx-auto mb-12">
-                <div class="grid md:grid-cols-2 gap-4">
-                    <div class="flex items-center gap-3 p-4 rounded-xl bg-white/[0.03] border border-white/5">
-                        <span class="text-red-400 text-lg">→</span>
-                        <span class="text-gray-300 text-sm">"We have 3 people just entering data"</span>
-                    </div>
-                    <div class="flex items-center gap-3 p-4 rounded-xl bg-white/[0.03] border border-white/5">
-                        <span class="text-red-400 text-lg">→</span>
-                        <span class="text-gray-300 text-sm">"Sales calls happen but insights get lost"</span>
-                    </div>
-                    <div class="flex items-center gap-3 p-4 rounded-xl bg-white/[0.03] border border-white/5">
-                        <span class="text-red-400 text-lg">→</span>
-                        <span class="text-gray-300 text-sm">"Support tickets pile up over weekends"</span>
-                    </div>
-                    <div class="flex items-center gap-3 p-4 rounded-xl bg-white/[0.03] border border-white/5">
-                        <span class="text-red-400 text-lg">→</span>
-                        <span class="text-gray-300 text-sm">"Reports take half of every Monday"</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- The Answer -->
-            <div class="text-center mb-12">
-                <p class="text-lg text-gray-400 mb-8">
-                    <span class="text-white font-semibold">There is a better way.</span> I build AI systems that do this work for you—accurately, instantly, 24/7.
-                </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <button onclick="openModal()" class="cta-button text-white font-bold text-lg px-8 py-4 rounded-xl transition-all">See How It Works</button>
-                    <a href="#solutions" class="border border-white/20 text-white font-semibold text-lg px-8 py-4 rounded-xl hover:bg-white/5 transition-all text-center">View Solutions</a>
-                </div>
+    <!-- HERO: The Full Automation Story -->
+    <header class="pt-32 pb-20 px-6 hero-gradient">
+        <div class="max-w-4xl mx-auto text-center">
+            <p class="text-orange-400 font-semibold text-sm uppercase tracking-wider mb-6">Full AI Automation</p>
+            <h1 class="text-5xl md:text-7xl font-black text-white leading-tight mb-8">
+                Not integrations.<br>
+                <span class="text-gray-400">Complete automation.</span>
+            </h1>
+            <p class="text-xl text-gray-400 max-w-2xl mx-auto mb-10">
+                You've tried Zapier. You've connected your tools. But someone still has to <em>do</em> the work. I build AI that handles entire workflows—reading, thinking, deciding, acting—from start to finish.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+                <button onclick="openModal()" class="cta-button text-white font-bold text-lg px-8 py-4 rounded-xl transition-all">See How It Works</button>
+                <a href="#the-difference" class="border border-white/20 text-white font-semibold text-lg px-8 py-4 rounded-xl hover:bg-white/5 transition-all text-center">What's Different?</a>
             </div>
         </div>
     </header>
 
-    <!-- PROOF: Numbers That Matter -->
-    <section class="py-16 border-y border-white/5 bg-white/[0.01]">
-        <div class="max-w-5xl mx-auto px-6">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-                <div class="text-center">
-                    <div class="text-4xl md:text-5xl font-black stat-highlight mb-2">$52K</div>
-                    <div class="text-sm text-gray-500">Average yearly savings</div>
+    <!-- THE DIFFERENCE: Integration vs Full Automation -->
+    <section id="the-difference" class="py-20 px-6 border-y border-white/5">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-black text-white mb-4">The Difference</h2>
+                <p class="text-gray-400 text-lg">Integration connects tools. Automation does the work.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Integration (The Old Way) -->
+                <div class="bg-white/[0.02] border border-white/10 rounded-2xl p-8">
+                    <div class="text-gray-500 font-semibold text-sm uppercase tracking-wider mb-4">Integration</div>
+                    <h3 class="text-2xl font-bold text-white mb-6">Tools talk to each other</h3>
+                    <div class="space-y-4 text-gray-400">
+                        <div class="flex gap-3">
+                            <span class="text-gray-600">→</span>
+                            <span>Email arrives, triggers a notification</span>
+                        </div>
+                        <div class="flex gap-3">
+                            <span class="text-gray-600">→</span>
+                            <span>Someone reads it, decides what to do</span>
+                        </div>
+                        <div class="flex gap-3">
+                            <span class="text-gray-600">→</span>
+                            <span>They copy the data manually</span>
+                        </div>
+                        <div class="flex gap-3">
+                            <span class="text-gray-600">→</span>
+                            <span>Paste it into the CRM</span>
+                        </div>
+                        <div class="flex gap-3">
+                            <span class="text-gray-600">→</span>
+                            <span>Maybe set a follow-up reminder</span>
+                        </div>
+                    </div>
+                    <div class="mt-8 pt-6 border-t border-white/5">
+                        <div class="text-gray-500 text-sm">Time per email: <span class="text-white font-semibold">3-5 minutes</span></div>
+                        <div class="text-gray-500 text-sm">Still needs: <span class="text-white font-semibold">A human</span></div>
+                    </div>
                 </div>
-                <div class="text-center">
-                    <div class="text-4xl md:text-5xl font-black stat-highlight mb-2">15hrs</div>
-                    <div class="text-sm text-gray-500">Saved per week</div>
-                </div>
-                <div class="text-center">
-                    <div class="text-4xl md:text-5xl font-black stat-highlight mb-2">4min</div>
-                    <div class="text-sm text-gray-500">Response time</div>
-                </div>
-                <div class="text-center">
-                    <div class="text-4xl md:text-5xl font-black stat-highlight mb-2">24/7</div>
-                    <div class="text-sm text-gray-500">Always running</div>
+
+                <!-- Full Automation (The New Way) -->
+                <div class="bg-orange-500/5 border border-orange-500/20 rounded-2xl p-8">
+                    <div class="text-orange-400 font-semibold text-sm uppercase tracking-wider mb-4">Full Automation</div>
+                    <h3 class="text-2xl font-bold text-white mb-6">AI does the entire job</h3>
+                    <div class="space-y-4 text-gray-300">
+                        <div class="flex gap-3">
+                            <span class="text-orange-400">→</span>
+                            <span>Email arrives</span>
+                        </div>
+                        <div class="flex gap-3">
+                            <span class="text-orange-400">→</span>
+                            <span>AI reads and understands the context</span>
+                        </div>
+                        <div class="flex gap-3">
+                            <span class="text-orange-400">→</span>
+                            <span>Extracts all relevant data automatically</span>
+                        </div>
+                        <div class="flex gap-3">
+                            <span class="text-orange-400">→</span>
+                            <span>Creates/updates CRM records</span>
+                        </div>
+                        <div class="flex gap-3">
+                            <span class="text-orange-400">→</span>
+                            <span>Schedules follow-ups, assigns tasks</span>
+                        </div>
+                        <div class="flex gap-3">
+                            <span class="text-orange-400">→</span>
+                            <span>Drafts a response if needed</span>
+                        </div>
+                    </div>
+                    <div class="mt-8 pt-6 border-t border-orange-500/10">
+                        <div class="text-gray-400 text-sm">Time per email: <span class="text-orange-400 font-semibold">0 seconds</span></div>
+                        <div class="text-gray-400 text-sm">Still needs: <span class="text-orange-400 font-semibold">Nothing</span></div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SOLUTIONS: What I Build -->
-    <section id="solutions" class="py-24 px-6">
-        <div class="max-w-6xl mx-auto">
+    <!-- HOW IT WORKS: The Full Story -->
+    <section id="how-it-works" class="py-24 px-6">
+        <div class="max-w-4xl mx-auto">
             <div class="text-center mb-16">
-                <p class="text-indigo-400 font-medium text-sm uppercase tracking-wider mb-4">Solutions</p>
-                <h2 class="text-4xl md:text-5xl font-black text-white mb-6">AI That Actually Works</h2>
-                <p class="text-xl text-gray-400 max-w-2xl mx-auto">Not chatbots. Not demos. Production systems that run your business while you sleep.</p>
+                <h2 class="text-3xl md:text-4xl font-black text-white mb-4">How Full Automation Works</h2>
+                <p class="text-gray-400 text-lg">AI that reads, thinks, decides, and acts—without human intervention.</p>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-8">
-                <!-- Card 1: Data Entry Elimination -->
-                <div class="group bg-white/[0.02] border border-white/10 rounded-2xl overflow-hidden hover:border-emerald-500/30 transition-all glow-subtle">
-                    <div class="h-56 overflow-hidden">
-                        <img src="images/data-entry.png" alt="Data Entry Elimination" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                    </div>
-                    <div class="p-8">
-                        <div class="text-emerald-400 font-semibold text-xs uppercase tracking-wider mb-3">Data Automation</div>
-                        <h3 class="text-2xl font-bold text-white mb-4">Kill the Copy-Paste</h3>
-                        <p class="text-gray-400 mb-6">AI reads your emails, PDFs, and forms. Extracts exactly what you need. Populates your CRM, spreadsheets, and databases—without a single human click.</p>
-                        <div class="flex items-center gap-3 text-sm">
-                            <span class="px-3 py-1.5 bg-emerald-500/10 text-emerald-400 rounded-full font-medium">15 hrs/week freed</span>
-                            <span class="px-3 py-1.5 bg-white/5 text-gray-400 rounded-full">99% accuracy</span>
+            <div class="space-y-6">
+                <div class="bg-white/[0.02] border border-white/10 rounded-2xl p-8">
+                    <div class="flex items-start gap-6">
+                        <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-400 text-xl font-bold">1</div>
+                        <div>
+                            <h3 class="text-xl font-bold text-white mb-3">It Watches Your Systems</h3>
+                            <p class="text-gray-400">Emails, forms, calls, tickets, documents—the AI monitors everything coming in. It never sleeps, never takes breaks, never misses anything.</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Card 2: Call Intelligence -->
-                <div class="group bg-white/[0.02] border border-white/10 rounded-2xl overflow-hidden hover:border-blue-500/30 transition-all glow-subtle">
+                <div class="bg-white/[0.02] border border-white/10 rounded-2xl p-8">
+                    <div class="flex items-start gap-6">
+                        <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-violet-500/10 flex items-center justify-center text-violet-400 text-xl font-bold">2</div>
+                        <div>
+                            <h3 class="text-xl font-bold text-white mb-3">It Understands Context</h3>
+                            <p class="text-gray-400">Not just keywords—actual meaning. It knows the difference between a hot lead and a tire-kicker. Between an urgent support request and a feature suggestion. Between "interested" and "ready to buy."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white/[0.02] border border-white/10 rounded-2xl p-8">
+                    <div class="flex items-start gap-6">
+                        <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 text-xl font-bold">3</div>
+                        <div>
+                            <h3 class="text-xl font-bold text-white mb-3">It Takes Action</h3>
+                            <p class="text-gray-400">Updates your CRM. Creates tickets. Sends responses. Schedules meetings. Routes to the right person. Generates reports. All the work that used to take hours—done instantly, perfectly, every time.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white/[0.02] border border-white/10 rounded-2xl p-8">
+                    <div class="flex items-start gap-6">
+                        <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-400 text-xl font-bold">4</div>
+                        <div>
+                            <h3 class="text-xl font-bold text-white mb-3">It Knows When to Escalate</h3>
+                            <p class="text-gray-400">Full automation doesn't mean zero humans. It means humans only touch what actually needs them. Complex decisions, angry customers, edge cases—those get flagged and routed. Everything else? Handled.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXAMPLES: Real Full Automation -->
+    <section id="examples" class="py-24 px-6 bg-white/[0.02]">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-black text-white mb-4">Full Automation in Action</h2>
+                <p class="text-gray-400 text-lg">Real systems I've built. Real work that disappeared.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Example 1 -->
+                <div class="group bg-[#0F172A] border border-white/10 rounded-2xl overflow-hidden hover:border-emerald-500/30 transition-all">
+                    <div class="h-56 overflow-hidden">
+                        <img src="images/data-entry.png" alt="Data Entry Automation" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-8">
+                        <div class="text-emerald-400 font-semibold text-xs uppercase tracking-wider mb-3">Data Processing</div>
+                        <h3 class="text-2xl font-bold text-white mb-4">Email → CRM (Zero Touch)</h3>
+                        <p class="text-gray-400 mb-6">Incoming emails automatically parsed. Deal size, timeline, contacts extracted. CRM records created or updated. Follow-ups scheduled. Response drafted. <strong class="text-white">The entire workflow—with no human involvement.</strong></p>
+                        <div class="text-sm text-gray-500">Previously: 3 full-time employees → Now: 0</div>
+                    </div>
+                </div>
+
+                <!-- Example 2 -->
+                <div class="group bg-[#0F172A] border border-white/10 rounded-2xl overflow-hidden hover:border-blue-500/30 transition-all">
                     <div class="h-56 overflow-hidden">
                         <img src="images/call-intelligence.png" alt="Call Intelligence" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                     </div>
                     <div class="p-8">
                         <div class="text-blue-400 font-semibold text-xs uppercase tracking-wider mb-3">Call Intelligence</div>
-                        <h3 class="text-2xl font-bold text-white mb-4">Every Call → Action Items</h3>
-                        <p class="text-gray-400 mb-6">Sales calls transcribed automatically. Feature requests extracted. Pain points tagged. Tickets created in Jira/Linear with full context—no manual note-taking ever again.</p>
-                        <div class="flex items-center gap-3 text-sm">
-                            <span class="px-3 py-1.5 bg-blue-500/10 text-blue-400 rounded-full font-medium">100% coverage</span>
-                            <span class="px-3 py-1.5 bg-white/5 text-gray-400 rounded-full">Zero lost insights</span>
-                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-4">Sales Call → Product Roadmap</h3>
+                        <p class="text-gray-400 mb-6">Every call recorded and transcribed. Feature requests extracted automatically. Pain points categorized. Tickets created in Jira with customer context and revenue weight. <strong class="text-white">Product team gets insights without anyone taking notes.</strong></p>
+                        <div class="text-sm text-gray-500">Insights captured: 100% → Previously: ~20%</div>
                     </div>
                 </div>
 
-                <!-- Card 3: AI Support -->
-                <div class="group bg-white/[0.02] border border-white/10 rounded-2xl overflow-hidden hover:border-violet-500/30 transition-all glow-subtle">
+                <!-- Example 3 -->
+                <div class="group bg-[#0F172A] border border-white/10 rounded-2xl overflow-hidden hover:border-violet-500/30 transition-all">
                     <div class="h-56 overflow-hidden">
-                        <img src="images/ai-support.png" alt="AI Customer Support" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <img src="images/ai-support.png" alt="AI Support" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                     </div>
                     <div class="p-8">
                         <div class="text-violet-400 font-semibold text-xs uppercase tracking-wider mb-3">Customer Support</div>
-                        <h3 class="text-2xl font-bold text-white mb-4">Support That Never Sleeps</h3>
-                        <p class="text-gray-400 mb-6">AI reads every ticket. Resolves simple issues instantly. Drafts responses for complex ones. Escalates urgent issues to humans. Monday morning? Zero backlog.</p>
-                        <div class="flex items-center gap-3 text-sm">
-                            <span class="px-3 py-1.5 bg-violet-500/10 text-violet-400 rounded-full font-medium">73% auto-resolved</span>
-                            <span class="px-3 py-1.5 bg-white/5 text-gray-400 rounded-full">4 min response</span>
-                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-4">Ticket → Resolution (24/7)</h3>
+                        <p class="text-gray-400 mb-6">Support ticket comes in at 2am. AI reads it, checks account history, identifies the issue, applies the fix or sends the right response. Customer wakes up to a solved problem. <strong class="text-white">Support that never sleeps.</strong></p>
+                        <div class="text-sm text-gray-500">73% of tickets fully resolved without human touch</div>
                     </div>
                 </div>
 
-                <!-- Card 4: Lead Enrichment -->
-                <div class="group bg-white/[0.02] border border-white/10 rounded-2xl overflow-hidden hover:border-amber-500/30 transition-all glow-subtle">
+                <!-- Example 4 -->
+                <div class="group bg-[#0F172A] border border-white/10 rounded-2xl overflow-hidden hover:border-amber-500/30 transition-all">
                     <div class="h-56 overflow-hidden">
                         <img src="images/lead-enrichment.png" alt="Lead Enrichment" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                     </div>
                     <div class="p-8">
                         <div class="text-amber-400 font-semibold text-xs uppercase tracking-wider mb-3">Sales Intelligence</div>
-                        <h3 class="text-2xl font-bold text-white mb-4">Know Them Before You Call</h3>
-                        <p class="text-gray-400 mb-6">Lead comes in. AI pulls company info, LinkedIn history, recent news, tech stack. Scores fit. Delivers personalized talking points to your rep—before they even dial.</p>
-                        <div class="flex items-center gap-3 text-sm">
-                            <span class="px-3 py-1.5 bg-amber-500/10 text-amber-400 rounded-full font-medium">42% more meetings</span>
-                            <span class="px-3 py-1.5 bg-white/5 text-gray-400 rounded-full">3x response rate</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PROCESS: How It Works -->
-    <section class="py-24 px-6 bg-white/[0.02]">
-        <div class="max-w-4xl mx-auto">
-            <div class="text-center mb-16">
-                <p class="text-indigo-400 font-medium text-sm uppercase tracking-wider mb-4">Process</p>
-                <h2 class="text-4xl font-black text-white mb-6">From Call to Running System</h2>
-                <p class="text-xl text-gray-400">Most projects go live in 2-3 weeks. Here's how.</p>
-            </div>
-            <div class="space-y-8">
-                <div class="flex gap-6 items-start p-6 rounded-2xl bg-white/[0.02] border border-white/5">
-                    <div class="flex-shrink-0 w-10 h-10 rounded-full bg-indigo-500/20 flex items-center justify-center text-indigo-400 font-bold text-sm">1</div>
-                    <div>
-                        <h3 class="text-xl font-bold text-white mb-2">Discovery Call <span class="text-gray-500 font-normal">(30 min)</span></h3>
-                        <p class="text-gray-400">Walk me through what's eating your time. I'll identify exactly where AI can help and we'll pick the first target together.</p>
-                    </div>
-                </div>
-                <div class="flex gap-6 items-start p-6 rounded-2xl bg-white/[0.02] border border-white/5">
-                    <div class="flex-shrink-0 w-10 h-10 rounded-full bg-indigo-500/20 flex items-center justify-center text-indigo-400 font-bold text-sm">2</div>
-                    <div>
-                        <h3 class="text-xl font-bold text-white mb-2">Build & Test <span class="text-gray-500 font-normal">(1-2 weeks)</span></h3>
-                        <p class="text-gray-400">I build using your real data. You see it working before anything goes live. We iterate until it's exactly right.</p>
-                    </div>
-                </div>
-                <div class="flex gap-6 items-start p-6 rounded-2xl bg-white/[0.02] border border-white/5">
-                    <div class="flex-shrink-0 w-10 h-10 rounded-full bg-indigo-500/20 flex items-center justify-center text-indigo-400 font-bold text-sm">3</div>
-                    <div>
-                        <h3 class="text-xl font-bold text-white mb-2">Deploy & Support</h3>
-                        <p class="text-gray-400">Go live with full documentation. I train your team. 30 days of support included. Most clients come back for more.</p>
+                        <h3 class="text-2xl font-bold text-white mb-4">Lead → Ready-to-Call Package</h3>
+                        <p class="text-gray-400 mb-6">New lead hits your CRM. Within seconds: company info pulled, LinkedIn scraped, recent news gathered, tech stack identified, fit scored, talking points generated. <strong class="text-white">Rep picks up the phone already prepared.</strong></p>
+                        <div class="text-sm text-gray-500">Research time: 20 min → 0 | Meetings booked: +42%</div>
                     </div>
                 </div>
             </div>
@@ -223,13 +250,12 @@
 
     <!-- ABOUT -->
     <section class="py-24 px-6">
-        <div class="max-w-4xl mx-auto">
-            <div class="bg-white/[0.02] border border-white/10 rounded-2xl p-8 md:p-12 glow-subtle">
-                <p class="text-indigo-400 font-medium text-sm uppercase tracking-wider mb-4">About</p>
+        <div class="max-w-3xl mx-auto">
+            <div class="bg-white/[0.02] border border-white/10 rounded-2xl p-8 md:p-12">
                 <h2 class="text-3xl font-bold text-white mb-6">I'm Sylvy</h2>
-                <p class="text-gray-400 mb-4 text-lg">20 years in tech. I've watched companies burn millions on "digital transformation" consultants who delivered decks, not systems.</p>
-                <p class="text-gray-400 mb-6 text-lg">AI is different. It actually delivers what those buzzwords promised. I build practical automation—voice agents, data pipelines, workflows that run while you sleep.</p>
-                <p class="text-white font-medium mb-8 text-lg">No enterprise theater. Just systems that work.</p>
+                <p class="text-gray-400 mb-4 text-lg">20 years building systems. I've watched companies try integrations, hire more people, add more tools—and still drown in manual work.</p>
+                <p class="text-gray-400 mb-6 text-lg">Full automation is different. It's not about connecting apps. It's about making work disappear. AI that actually thinks, decides, and acts—so your team can focus on what matters.</p>
+                <p class="text-white font-medium mb-8 text-lg">I build the systems. You get your time back.</p>
                 <div class="flex gap-4">
                     <a href="https://x.com/callforg" target="_blank" class="px-5 py-2.5 bg-white/5 border border-white/10 rounded-lg text-gray-400 hover:text-white hover:border-white/20 transition-all text-sm font-medium">Follow on X</a>
                     <a href="https://www.linkedin.com/in/sylvan-grunwald-24a57b3/" target="_blank" class="px-5 py-2.5 bg-white/5 border border-white/10 rounded-lg text-gray-400 hover:text-white hover:border-white/20 transition-all text-sm font-medium">LinkedIn</a>
@@ -242,12 +268,11 @@
     <section id="insights" class="py-24 px-6 bg-white/[0.02]">
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-16">
-                <p class="text-indigo-400 font-medium text-sm uppercase tracking-wider mb-4">Insights</p>
-                <h2 class="text-4xl font-black text-white mb-6">Lessons from the Trenches</h2>
-                <p class="text-xl text-gray-400">What I've learned building automation for 20 years.</p>
+                <h2 class="text-3xl font-black text-white mb-4">Insights</h2>
+                <p class="text-gray-400 text-lg">What I've learned building full automation systems.</p>
             </div>
             <div class="grid md:grid-cols-3 gap-6">
-                <a href="blog/why-ai-agents-fail.html" class="group bg-white/[0.02] border border-white/10 rounded-2xl overflow-hidden hover:border-orange-500/30 transition-all">
+                <a href="blog/why-ai-agents-fail.html" class="group bg-[#0F172A] border border-white/10 rounded-2xl overflow-hidden hover:border-orange-500/30 transition-all">
                     <div class="h-48 overflow-hidden">
                         <img src="images/ai-agents-fail.png" alt="Why AI Agents Fail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                     </div>
@@ -257,7 +282,7 @@
                         <p class="text-gray-500 text-sm">The hard lessons nobody tells you.</p>
                     </div>
                 </a>
-                <a href="blog/death-of-data-entry.html" class="group bg-white/[0.02] border border-white/10 rounded-2xl overflow-hidden hover:border-emerald-500/30 transition-all">
+                <a href="blog/death-of-data-entry.html" class="group bg-[#0F172A] border border-white/10 rounded-2xl overflow-hidden hover:border-emerald-500/30 transition-all">
                     <div class="h-48 overflow-hidden">
                         <img src="images/data-entry.png" alt="Death of Data Entry" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                     </div>
@@ -267,7 +292,7 @@
                         <p class="text-gray-500 text-sm">Why your team should never copy-paste again.</p>
                     </div>
                 </a>
-                <a href="blog/ai-customer-support.html" class="group bg-white/[0.02] border border-white/10 rounded-2xl overflow-hidden hover:border-violet-500/30 transition-all">
+                <a href="blog/ai-customer-support.html" class="group bg-[#0F172A] border border-white/10 rounded-2xl overflow-hidden hover:border-violet-500/30 transition-all">
                     <div class="h-48 overflow-hidden">
                         <img src="images/ai-support.png" alt="AI Customer Support" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                     </div>
@@ -284,17 +309,17 @@
     <!-- FINAL CTA -->
     <section class="py-32 px-6">
         <div class="max-w-3xl mx-auto text-center">
-            <h2 class="text-4xl md:text-5xl font-black text-white mb-6">Those 15 hours aren't coming back.</h2>
-            <p class="text-xl text-gray-400 mb-10">Unless you do something about it. Book a free call—I'll show you exactly where AI can help.</p>
+            <h2 class="text-4xl md:text-5xl font-black text-white mb-6">Ready for full automation?</h2>
+            <p class="text-xl text-gray-400 mb-10">Not integrations. Not band-aids. Real automation that makes work disappear.</p>
             <button onclick="openModal()" class="cta-button text-white font-bold text-xl px-12 py-6 rounded-xl transition-all">Book Free Consultation</button>
-            <p class="text-gray-600 text-sm mt-6">30 minutes. No pressure. Real answers.</p>
+            <p class="text-gray-600 text-sm mt-6">30 minutes. I'll show you exactly what's possible.</p>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="py-12 px-6 border-t border-white/5">
         <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-            <span class="text-lg font-bold text-white">CallForgr</span>
+            <a href="/" class="text-lg font-bold text-white">CallForgr</a>
             <div class="flex items-center gap-6">
                 <a href="https://x.com/callforg" target="_blank" class="text-gray-500 hover:text-white text-sm transition-colors">@callforg</a>
                 <a href="https://www.linkedin.com/in/sylvan-grunwald-24a57b3/" target="_blank" class="text-gray-500 hover:text-white text-sm transition-colors">LinkedIn</a>
