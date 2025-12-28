@@ -1,498 +1,169 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CallForgr | Find Your Product Breakthrough</title>
-    <meta name="description" content="We mine your call logs to find the features that will get you to the next stage.">
+    <title>CallForgr | AI Automation Consultant</title>
+    <meta name="description" content="I automate your business with AI.">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap"
-        rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace'],
-                    },
-                    colors: {
-                        bg: '#020617', // Slate 950
-                        surface: 'rgba(30, 41, 59, 0.5)',
-                        border: 'rgba(255, 255, 255, 0.1)',
-                        signal: '#FF5500', // High-conversion Orange
-                        signalHover: '#FF7733',
-                        text: '#F8FAFC',
-                        muted: '#94A3B8',
-                        // UI Mockup Colors
-                        slack: '#1A1D21',
-                        linear: '#18181B',
-                        doc: '#FFFFFF'
-                    }
-                }
-            }
-        }
-    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        body {
-            background-color: #020617;
-            color: #F8FAFC;
-            overflow-x: hidden;
-        }
-
-        /* Glass Effect */
-        .glass {
-            background: rgba(15, 23, 42, 0.6);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
-        /* High-Contrast CTA */
-        .cta-button {
-            background: linear-gradient(180deg, #FF6611 0%, #FF4400 100%);
-            box-shadow: 0 0 15px rgba(255, 68, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.2);
-            transition: transform 0.1s, box-shadow 0.1s;
-            cursor: pointer;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 0 25px rgba(255, 68, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2);
-        }
-
-        .cta-button:active {
-            transform: translateY(1px);
-        }
-
-        /* UI Mockup Details */
-        .mockup-shadow {
-            box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5);
-        }
+        body { background-color: #020617; color: #F8FAFC; }
+        .cta-button { background: linear-gradient(180deg, #FF6611 0%, #FF4400 100%); cursor: pointer; }
+        .stat-number { background: linear-gradient(180deg, #FFF 0%, #94A3B8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
     </style>
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
 </head>
-
-<body class="antialiased selection:bg-signal selection:text-white">
-
-    <!-- 1. URGENCY BAR -->
-    <div
-        class="bg-blue-900/30 border-b border-blue-500/20 text-blue-200 text-sm font-bold py-3 px-4 flex justify-center items-center tracking-wide sticky top-0 z-50 backdrop-blur-md">
-        ✨ Limited Access — 5 scoping audits available this week
-    </div>
-
-    <!-- 1.5 STICKY NAV -->
-    <nav class="sticky top-[45px] z-40 bg-[#020617]/80 backdrop-blur-md border-b border-white/5">
-        <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between relative">
-            <!-- Company Name (Prominent) -->
-            <div class="flex items-center gap-2">
-                <div class="w-8 h-8 rounded bg-white/5 flex items-center justify-center border border-white/10">
-                    <svg class="w-5 h-5 text-signal" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2">
-                        <path d="M12 2v20M2 12h20" stroke-linecap="round" />
-                    </svg>
-                </div>
-                <span class="text-xl font-bold text-white tracking-tight">CallForgr</span>
-            </div>
-
-            <!-- Centered Links (Desktop) -->
-            <div
-                class="hidden md:flex items-center gap-8 text-sm font-medium text-muted absolute left-1/2 -translate-x-1/2">
-                <a href="#roadmap" class="hover:text-white transition-colors">Product Roadmap</a>
-                <a href="#copy" class="hover:text-white transition-colors">Marketing Copy</a>
-                <a href="#churn" class="hover:text-white transition-colors">Churn Defense</a>
-            </div>
-
-            <!-- Right Side Spacer (for balance) -->
-            <div class="hidden md:block w-20"></div>
+<body class="antialiased">
+    <nav class="sticky top-0 z-40 bg-[#020617]/80 backdrop-blur-md border-b border-white/5">
+        <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+            <span class="text-xl font-bold text-white">CallForgr</span>
+            <a href="https://x.com/callforg" target="_blank" class="text-gray-400 hover:text-white">@callforg</a>
         </div>
     </nav>
-
-    <!-- 2. HERO SECTION -->
-    <header class="pt-20 pb-32 px-6 max-w-5xl mx-auto text-center relative">
-        <!-- Subtle Glow -->
-        <div
-            class="absolute top-20 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-blue-500/10 rounded-full blur-[100px] -z-10 pointer-events-none">
-        </div>
-
-        <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-8 leading-tight">
-            I’ll find the hidden revenue leaking from your calls — <br class="hidden md:block" />
-            <span class="text-signal">live on a 30-min screen share</span>
-        </h1>
-
-        <p class="text-xl md:text-2xl text-muted font-medium mb-12 max-w-3xl mx-auto leading-relaxed">
-            Book a 30-min scoping call. Come with 5 anonymized call recordings ready to share. <span
-                class="text-white">I’ll analyze them on the spot</span> and show you exactly where the money is hiding.
-        </p>
-
-        <div class="flex flex-col items-center gap-8">
-            <!-- Updated CTA to trigger Modal -->
-            <button onclick="openModal()"
-                class="cta-button text-white font-bold text-lg md:text-xl px-10 py-6 rounded-xl w-full md:w-auto text-center shadow-2xl shadow-orange-500/20">
-                Book Scoping Call &rarr; Show Me the Money
-            </button>
-
-            <div class="flex items-center gap-2 text-xs text-muted font-mono opacity-80">
-                No automated report. No BS. Just me + your calls + real dollar opportunities in 30 minutes or less.
-            </div>
-        </div>
+    <header class="pt-24 pb-32 px-6 max-w-5xl mx-auto text-center">
+        <h1 class="text-4xl md:text-6xl font-extrabold mb-8">I automate your business <span class="text-orange-500">with AI</span></h1>
+        <p class="text-xl text-gray-400 mb-12 max-w-3xl mx-auto">Stop doing repetitive work. I build custom AI workflows that save you 20+ hours per week.</p>
+        <button onclick="openModal()" class="cta-button text-white font-bold text-lg px-8 py-4 rounded-xl">Book Free Consultation</button>
     </header>
-
-    <!-- 2.5 THE PROBLEM (NARRATIVE BRIDGE) -->
-    <section class="py-20 bg-white/5 border-y border-white/5">
-        <div class="max-w-4xl mx-auto px-6 text-center">
-            <h2 class="text-sm font-mono text-red-400 font-bold uppercase tracking-widest mb-4">The Blind Spot</h2>
-            <h3 class="text-3xl md:text-4xl font-bold text-white mb-6">You're sitting on a goldmine of intelligence.
-            </h3>
-            <p class="text-lg text-muted leading-relaxed">
-                You don't need more "ideas". You need to know what's already working.
-                <span class="text-white">Your customers are telling you exactly what to build, but their voices are
-                    trapped in audio files.</span>
-                <br><br>
-                Stop guessing. Start listening at scale.
-            </p>
+    <section class="py-16 border-y border-white/5">
+        <div class="max-w-6xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div><div class="text-4xl font-extrabold stat-number mb-2">50+</div><div class="text-sm text-gray-400">Automations</div></div>
+            <div><div class="text-4xl font-extrabold stat-number mb-2">1000+</div><div class="text-sm text-gray-400">Hours Saved</div></div>
+            <div><div class="text-4xl font-extrabold stat-number mb-2">24hr</div><div class="text-sm text-gray-400">Response</div></div>
+            <div><div class="text-4xl font-extrabold stat-number mb-2">100%</div><div class="text-sm text-gray-400">Satisfaction</div></div>
+        </div>
+    </section>
+    <section id="services" class="py-24 px-6 max-w-6xl mx-auto">
+        <h2 class="text-3xl font-bold text-white text-center mb-4">AI Automation Services</h2>
+        <p class="text-gray-400 text-center mb-16 max-w-2xl mx-auto">Real workflows I build for clients - not generic solutions</p>
+        <div class="grid md:grid-cols-3 gap-6">
+            <div class="bg-white/5 border border-white/10 rounded-2xl p-8 hover:border-orange-500/30 transition-colors">
+                <div class="text-2xl mb-4">Call</div>
+                <h3 class="text-xl font-bold text-white mb-3">Call Intelligence</h3>
+                <p class="text-gray-400 mb-4">Turn call recordings into actionable insights.</p>
+                <ul class="text-sm text-gray-500 space-y-2">
+                    <li>Extract customer pain points automatically</li>
+                    <li>Surface feature requests for product team</li>
+                    <li>Track competitor mentions across calls</li>
+                    <li>Auto-generate call summaries to CRM</li>
+                </ul>
+            </div>
+            <div class="bg-white/5 border border-white/10 rounded-2xl p-8 hover:border-orange-500/30 transition-colors">
+                <div class="text-2xl mb-4">Data</div>
+                <h3 class="text-xl font-bold text-white mb-3">Data Entry Elimination</h3>
+                <p class="text-gray-400 mb-4">Free your analysts from copy-paste hell.</p>
+                <ul class="text-sm text-gray-500 space-y-2">
+                    <li>Pull data from emails/PDFs into CRM</li>
+                    <li>Auto-populate spreadsheets from docs</li>
+                    <li>Invoice processing and categorization</li>
+                    <li>Weekly report generation from sources</li>
+                </ul>
+            </div>
+            <div class="bg-white/5 border border-white/10 rounded-2xl p-8 hover:border-orange-500/30 transition-colors">
+                <div class="text-2xl mb-4">Bot</div>
+                <h3 class="text-xl font-bold text-white mb-3">Custom AI Agents</h3>
+                <p class="text-gray-400 mb-4">Intelligent bots that work while you sleep.</p>
+                <ul class="text-sm text-gray-500 space-y-2">
+                    <li>Lead qualification chatbots</li>
+                    <li>Customer support auto-responders</li>
+                    <li>Research assistants for your team</li>
+                    <li>Internal knowledge base bots</li>
+                </ul>
+            </div>
         </div>
     </section>
 
-    <!-- 3. THE 3 EXAMPLES (CORE) -->
-    <section class="py-24 px-4 md:px-6 space-y-32 max-w-6xl mx-auto">
-
-        <!-- EXAMPLE 1: REVENUE ROADMAP (THE BREAKTHROUGH) -->
-        <div id="roadmap" class="grid lg:grid-cols-2 gap-12 items-center scroll-mt-32">
-            <div class="order-2 lg:order-1 space-y-6">
-                <div class="flex items-center gap-2 text-signal font-mono text-xs font-bold uppercase tracking-wider">
-                    <span class="w-2 h-2 rounded-full bg-signal"></span> Step 1: The Breakthrough
-                </div>
-                <h2 class="text-3xl md:text-4xl font-bold text-white leading-tight">Product Roadmap</h2>
-                <p class="text-muted text-lg leading-relaxed">Stop guessing. We link every feature request to the dollar
-                    value of the customer asking for it. Prioritize your roadmap by potential revenue, not just loud
-                    voices.</p>
-                <div class="pt-4 flex items-center gap-2 text-xs font-mono text-green-400">
-                    <span class="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"></span>
-                    This runs inside your environment in &lt;7 days.
-                </div>
-            </div>
-
-            <!-- Visual: Agent Insight (Roadmap List) -->
-            <div class="order-1 lg:order-2 relative group">
-                <div
-                    class="relative z-10 bg-[#0F1115] border border-white/10 rounded-2xl overflow-hidden shadow-2xl mockup-shadow transform transition group-hover:-translate-y-1">
-                    <!-- Header -->
-                    <div class="bg-white/5 px-6 py-4 border-b border-white/5 flex justify-between items-center">
-                        <div class="flex items-center gap-3">
-                            <div class="w-6 h-6 rounded-full bg-blue-500/20 flex items-center justify-center">
-                                <svg class="w-3 h-3 text-blue-400" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M13 10V3L4 14h7v7l9-11h-7z" />
-                                </svg>
-                            </div>
-                            <span class="text-sm font-bold text-white">Agent Analysis</span>
-                        </div>
-                        <span class="text-[10px] text-gray-500 font-mono uppercase tracking-wider">Sorted by
-                            Revenue</span>
-                    </div>
-
-                    <!-- List -->
-                    <div class="divide-y divide-white/5">
-                        <!-- Item 1 (High Impact) -->
-                        <div
-                            class="p-4 bg-blue-500/5 flex items-center justify-between group/item hover:bg-white/5 transition-colors">
-                            <div class="flex items-center gap-4">
-                                <span class="text-blue-500 font-mono font-bold text-lg">01</span>
-                                <div>
-                                    <div class="text-sm font-bold text-white">Offline Mode</div>
-                                    <div class="text-xs text-gray-500">43 requests • <span class="text-blue-400">High
-                                            Urgency</span></div>
-                                </div>
-                            </div>
-                            <div class="text-right">
-                                <div class="text-lg font-bold text-green-400">$187k</div>
-                                <div class="text-[10px] text-gray-500">ARR Impact</div>
-                            </div>
-                        </div>
-
-                        <!-- Item 2 -->
-                        <div
-                            class="p-4 flex items-center justify-between group/item hover:bg-white/5 transition-colors">
-                            <div class="flex items-center gap-4">
-                                <span class="text-gray-600 font-mono font-bold text-lg">02</span>
-                                <div>
-                                    <div class="text-sm font-bold text-gray-300">SSO Integration</div>
-                                    <div class="text-xs text-gray-500">12 requests</div>
-                                </div>
-                            </div>
-                            <div class="text-right">
-                                <div class="text-sm font-bold text-gray-300">$45k</div>
-                            </div>
-                        </div>
-
-                        <!-- Item 3 -->
-                        <div
-                            class="p-4 flex items-center justify-between group/item hover:bg-white/5 transition-colors">
-                            <div class="flex items-center gap-4">
-                                <span class="text-gray-600 font-mono font-bold text-lg">03</span>
-                                <div>
-                                    <div class="text-sm font-bold text-gray-300">Dark Mode</div>
-                                    <div class="text-xs text-gray-500">98 requests</div>
-                                </div>
-                            </div>
-                            <div class="text-right">
-                                <div class="text-sm font-bold text-gray-300">$12k</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Footer Insight -->
-                    <div class="bg-white/5 px-6 py-3 border-t border-white/5 text-xs text-gray-400">
-                        <span class="text-blue-400 font-bold">Recommendation:</span> Build "Offline Mode" to unlock
-                        $187k in pipeline.
+    <section class="py-24 px-6 bg-gradient-to-b from-transparent to-white/[0.02]">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-white text-center mb-4">Example Workflows</h2>
+            <p class="text-gray-400 text-center mb-16">Automations I have built for clients</p>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="flex gap-4 items-start p-6 bg-white/5 rounded-xl border border-white/10">
+                    <div class="text-orange-500 font-bold text-xl">01</div>
+                    <div>
+                        <h3 class="text-lg font-bold text-white mb-2">Sales Call to Roadmap Pipeline</h3>
+                        <p class="text-gray-400 text-sm">AI listens to every sales call, extracts feature requests, tags by revenue impact, auto-creates tickets in Linear/Jira.</p>
                     </div>
                 </div>
-                <!-- Glow -->
-                <div class="absolute inset-0 bg-blue-500/20 blur-3xl -z-10 opacity-20"></div>
-            </div>
-        </div>
-
-        <!-- EXAMPLE 2: COPYWRITING (THE SCALE) -->
-        <div id="copy" class="grid lg:grid-cols-2 gap-12 items-center scroll-mt-32">
-            <!-- Visual: Agent Insight (Translation) -->
-            <div class="relative group">
-                <div
-                    class="relative z-10 bg-[#0F1115] border border-white/10 rounded-2xl p-8 shadow-2xl mockup-shadow transform transition group-hover:-translate-y-1">
-                    <div class="flex items-center gap-3 mb-6">
-                        <div class="w-8 h-8 rounded-full bg-purple-500/20 flex items-center justify-center">
-                            <svg class="w-4 h-4 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
-                            </svg>
-                        </div>
-                        <div class="text-sm font-mono text-purple-400 font-bold uppercase tracking-wider">Agent Rewrite
-                        </div>
-                    </div>
-
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="space-y-2 opacity-50">
-                            <div class="text-xs text-gray-500 uppercase font-bold">Generic Copy</div>
-                            <div
-                                class="p-3 bg-white/5 rounded border border-white/5 text-sm text-gray-400 line-through">
-                                "Boost your efficiency"
-                            </div>
-                        </div>
-                        <div class="space-y-2">
-                            <div class="text-xs text-green-400 uppercase font-bold">Customer Language</div>
-                            <div
-                                class="p-3 bg-green-500/10 rounded border border-green-500/20 text-sm text-white font-bold">
-                                "Stop wasting time"
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mt-6 text-xs text-gray-400 leading-relaxed">
-                        <span class="text-purple-400">Analysis:</span> 78% of your buyers use the phrase "wasting time"
-                        when describing their pain.
+                <div class="flex gap-4 items-start p-6 bg-white/5 rounded-xl border border-white/10">
+                    <div class="text-orange-500 font-bold text-xl">02</div>
+                    <div>
+                        <h3 class="text-lg font-bold text-white mb-2">Email to CRM Data Entry</h3>
+                        <p class="text-gray-400 text-sm">Incoming emails parsed for key data (deal size, timeline, contacts), auto-populated into Salesforce/HubSpot.</p>
                     </div>
                 </div>
-                <!-- Glow -->
-                <div class="absolute inset-0 bg-purple-500/20 blur-3xl -z-10 opacity-20"></div>
-            </div>
-
-            <div class="space-y-6">
-                <div class="flex items-center gap-2 text-signal font-mono text-xs font-bold uppercase tracking-wider">
-                    <span class="w-2 h-2 rounded-full bg-signal"></span> Step 2: The Scale
+                <div class="flex gap-4 items-start p-6 bg-white/5 rounded-xl border border-white/10">
+                    <div class="text-orange-500 font-bold text-xl">03</div>
+                    <div>
+                        <h3 class="text-lg font-bold text-white mb-2">Lead Enrichment Bot</h3>
+                        <p class="text-gray-400 text-sm">New leads enriched with company info, LinkedIn data, recent news - delivered with personalized talking points.</p>
+                    </div>
                 </div>
-                <h2 class="text-3xl md:text-4xl font-bold text-white leading-tight">Customer-Driven Marketing Copy</h2>
-                <p class="text-muted text-lg leading-relaxed">Don't guess. Our agents analyze your customer data to
-                    draft high-converting copy using the exact words your market uses.</p>
-                <div class="pt-4 flex items-center gap-2 text-xs font-mono text-green-400">
-                    <span class="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"></span>
-                    This runs inside your environment in &lt;7 days.
+                <div class="flex gap-4 items-start p-6 bg-white/5 rounded-xl border border-white/10">
+                    <div class="text-orange-500 font-bold text-xl">04</div>
+                    <div>
+                        <h3 class="text-lg font-bold text-white mb-2">Weekly Digest Generator</h3>
+                        <p class="text-gray-400 text-sm">Pulls metrics from 5+ tools (Stripe, GA, Intercom), generates executive summary, delivers to Slack Monday 8am.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4 items-start p-6 bg-white/5 rounded-xl border border-white/10">
+                    <div class="text-orange-500 font-bold text-xl">05</div>
+                    <div>
+                        <h3 class="text-lg font-bold text-white mb-2">Support Ticket Triage</h3>
+                        <p class="text-gray-400 text-sm">AI reads every support ticket, categorizes by urgency, drafts response for review, escalates critical issues.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4 items-start p-6 bg-white/5 rounded-xl border border-white/10">
+                    <div class="text-orange-500 font-bold text-xl">06</div>
+                    <div>
+                        <h3 class="text-lg font-bold text-white mb-2">Contract Review Assistant</h3>
+                        <p class="text-gray-400 text-sm">Upload any contract, AI extracts key terms, flags unusual clauses, compares against your standard terms.</p>
+                    </div>
                 </div>
             </div>
         </div>
-
-        <!-- EXAMPLE 3: CHURN DEFENSE (THE FOUNDATION) -->
-        <div id="churn" class="grid lg:grid-cols-2 gap-12 items-center scroll-mt-32">
-            <div class="order-2 lg:order-1 space-y-6">
-                <div class="flex items-center gap-2 text-signal font-mono text-xs font-bold uppercase tracking-wider">
-                    <span class="w-2 h-2 rounded-full bg-signal"></span> Step 3: The Foundation
-                </div>
-                <h2 class="text-3xl md:text-4xl font-bold text-white leading-tight">Churn Defense</h2>
-                <p class="text-muted text-lg leading-relaxed">As you push for growth, don't leak revenue. We detect
-                    subtle friction points and churn risks 90 days out, so you keep every dollar you close.</p>
-                <div class="pt-4 flex items-center gap-2 text-xs font-mono text-green-400">
-                    <span class="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"></span>
-                    This runs inside your environment in &lt;7 days.
-                </div>
-            </div>
-
-            <!-- Visual: Agent Insight (Churn Alert) -->
-            <div class="order-1 lg:order-2 relative group">
-                <div
-                    class="relative z-10 bg-[#0F1115] border border-red-500/30 rounded-2xl p-8 shadow-2xl mockup-shadow transform transition group-hover:-translate-y-1">
-                    <div class="flex items-center gap-3 mb-6">
-                        <div
-                            class="w-8 h-8 rounded-full bg-red-500 flex items-center justify-center text-white font-bold animate-pulse">
-                            !</div>
-                        <div class="text-sm font-mono text-red-400 font-bold uppercase tracking-wider">Risk Detected
-                        </div>
-                    </div>
-
-                    <div class="space-y-4">
-                        <p class="text-lg text-white font-medium">
-                            <span class="text-red-400">TechFlow Inc</span> mentioned "competitor" and "pricing" in 3
-                            recent calls.
-                        </p>
-
-                        <div class="grid grid-cols-2 gap-4 text-xs">
-                            <div class="bg-white/5 p-3 rounded border border-white/5">
-                                <div class="text-gray-500 mb-1">Contract Value</div>
-                                <div class="text-white font-bold text-lg">$85,000</div>
-                            </div>
-                            <div class="bg-white/5 p-3 rounded border border-white/5">
-                                <div class="text-gray-500 mb-1">Renewal In</div>
-                                <div class="text-yellow-400 font-bold text-lg">45 Days</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Glow -->
-                <div class="absolute inset-0 bg-red-500/20 blur-3xl -z-10 opacity-20"></div>
-            </div>
-        </div>
-
     </section>
-
-    <!-- 5. FINAL SCREEN (CTA) -->
-    <footer class="py-32 px-6 text-center max-w-4xl mx-auto">
-        <h2 class="text-4xl md:text-6xl font-extrabold text-white mb-8 leading-tight">Ready to find your breakthrough?
-        </h2>
-        <p class="text-xl text-muted mb-12 leading-relaxed max-w-2xl mx-auto">
-            30-min call. We’ll audit your revenue stack and tell you exactly what’s hiding in your logs.
-            <br class="hidden md:block" />
-            <span class="text-white">Zero risk. We only find what's already there.</span>
-        </p>
-
-        <div class="flex flex-col items-center gap-6">
-            <!-- Updated Footer CTA to trigger Modal -->
-            <button onclick="openModal()"
-                class="cta-button text-white font-bold text-xl px-12 py-6 rounded-xl w-full md:w-auto text-center transform hover:scale-105 transition duration-200 shadow-2xl shadow-orange-500/20">
-                Uncover My Hidden Data &rarr;
-            </button>
+    <section id="process" class="py-24 px-6 bg-white/[0.02] border-y border-white/5">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-white text-center mb-16">Simple 3-Step Process</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div><h3 class="text-xl font-bold text-white mb-3">01. Discovery Call</h3><p class="text-gray-400">30-min call to understand your workflows and goals.</p></div>
+                <div><h3 class="text-xl font-bold text-white mb-3">02. Custom Solution</h3><p class="text-gray-400">I design and build your automation.</p></div>
+                <div><h3 class="text-xl font-bold text-white mb-3">03. Launch & Support</h3><p class="text-gray-400">Deploy, train your team, ongoing support.</p></div>
+            </div>
+        </div>
+    </section>
+    <section class="py-24 px-6 max-w-6xl mx-auto text-center">
+        <h2 class="text-3xl font-bold text-white mb-6">Tools I Work With</h2>
+        <div class="flex flex-wrap justify-center gap-4">
+            <span class="px-6 py-3 rounded-full bg-white/5 border border-white/10 text-gray-400">Claude AI</span>
+            <span class="px-6 py-3 rounded-full bg-white/5 border border-white/10 text-gray-400">OpenAI</span>
+            <span class="px-6 py-3 rounded-full bg-white/5 border border-white/10 text-gray-400">Zapier</span>
+            <span class="px-6 py-3 rounded-full bg-white/5 border border-white/10 text-gray-400">Make.com</span>
+            <span class="px-6 py-3 rounded-full bg-white/5 border border-white/10 text-gray-400">n8n</span>
+            <span class="px-6 py-3 rounded-full bg-white/5 border border-white/10 text-gray-400">Python</span>
+        </div>
+    </section>
+    <section id="contact" class="py-32 px-6 text-center max-w-4xl mx-auto">
+        <h2 class="text-4xl font-extrabold text-white mb-8">Ready to automate your business?</h2>
+        <p class="text-xl text-gray-400 mb-12">Book a free 30-minute consultation.</p>
+        <button onclick="openModal()" class="cta-button text-white font-bold text-xl px-12 py-6 rounded-xl">Book Free Consultation</button>
+    </section>
+    <footer class="py-12 px-6 border-t border-white/5">
+        <div class="max-w-6xl mx-auto flex items-center justify-between">
+            <span class="text-lg font-bold text-white">CallForgr</span>
+            <a href="https://x.com/callforg" target="_blank" class="text-gray-400 hover:text-white">@callforg</a>
         </div>
     </footer>
-
-    <!-- 4. MINI PROOF STRIP -->
-    <section class="py-20 bg-white/5 border-t border-white/5">
-        <div class="max-w-6xl mx-auto px-6">
-            <h4 class="text-center text-xs font-mono text-gray-500 uppercase tracking-widest mb-12">Trusted by Growth
-                Leaders</h4>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-
-                <div class="flex flex-col gap-4">
-                    <p class="text-lg font-medium text-white leading-relaxed">"Finally, a roadmap based on revenue, not
-                        just loud opinions. We prioritized 'SSO Integration' because we saw it was blocking $500k in
-                        pipeline."</p>
-                    <div class="flex items-center gap-3">
-                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Elena Rodriguez"
-                            class="w-10 h-10 rounded-full border border-white/10">
-                        <div>
-                            <p class="text-sm font-bold text-white">Elena Rodriguez</p>
-                            <p class="text-xs text-muted">Head of Product, DataSync</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="flex flex-col gap-4">
-                    <p class="text-lg font-medium text-white leading-relaxed">"My reps were wasting hours writing
-                        follow-up emails. Now they just click 'Generate' and get copy that actually sounds like them.
-                        It's given us back 20% of our week."</p>
-                    <div class="flex items-center gap-3">
-                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Marcus Chen"
-                            class="w-10 h-10 rounded-full border border-white/10">
-                        <div>
-                            <p class="text-sm font-bold text-white">Marcus Chen</p>
-                            <p class="text-xs text-muted">Director of Sales, FinFlow</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="flex flex-col gap-4">
-                    <p class="text-lg font-medium text-white leading-relaxed">"We caught a $120k renewal at risk because
-                        CallForgr flagged a 'competitor mention' that wasn't in Salesforce. Saved the deal in 48 hours."
-                    </p>
-                    <div class="flex items-center gap-3">
-                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Sarah Jenkins"
-                            class="w-10 h-10 rounded-full border border-white/10">
-                        <div>
-                            <p class="text-sm font-bold text-white">Sarah Jenkins</p>
-                            <p class="text-xs text-muted">VP of Customer Success, CloudScale</p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- 6. BOOKING MODAL -->
-    <div id="booking-modal"
-        class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/80 backdrop-blur-sm p-4 opacity-0 transition-opacity duration-300">
-        <div
-            class="relative w-full max-w-4xl h-[80vh] bg-white rounded-2xl shadow-2xl overflow-hidden transform scale-95 transition-transform duration-300">
-            <button onclick="closeModal()"
-                class="absolute top-4 right-4 z-10 p-2 bg-white/80 text-gray-600 rounded-full hover:bg-gray-100 transition shadow-sm">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
-                    </path>
-                </svg>
-            </button>
-            <!-- Google Calendar Appointment Schedule -->
-            <iframe src="https://calendar.app.google/kLWTrRULrtT9zEPV9?gv=true" class="w-full h-full border-0"
-                frameborder="0"></iframe>
+    <div id="booking-modal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/80 p-4 opacity-0">
+        <div class="relative w-full max-w-4xl h-[80vh] bg-white rounded-2xl overflow-hidden">
+            <button onclick="closeModal()" class="absolute top-4 right-4 z-10 p-2 bg-white text-gray-600 rounded-full">X</button>
+            <iframe src="https://calendar.app.google/kLWTrRULrtT9zEPV9?gv=true" class="w-full h-full border-0"></iframe>
         </div>
     </div>
-
-    <!-- 7. SCRIPTS -->
     <script>
-        function openModal() {
-            const modal = document.getElementById('booking-modal');
-            modal.classList.remove('hidden');
-            // Small delay to allow display:block to apply before opacity transition
-            setTimeout(() => {
-                modal.classList.remove('opacity-0');
-                const content = modal.querySelector('div');
-                content.classList.remove('scale-95');
-                content.classList.add('scale-100');
-            }, 10);
-        }
-
-        function closeModal() {
-            const modal = document.getElementById('booking-modal');
-            modal.classList.add('opacity-0');
-            const content = modal.querySelector('div');
-            content.classList.remove('scale-100');
-            content.classList.add('scale-95');
-            setTimeout(() => {
-                modal.classList.add('hidden');
-            }, 300); // Matches transition duration
-        }
-
-        // Close modal on escape key
-        document.addEventListener('keydown', function (event) {
-            if (event.key === "Escape") {
-                closeModal();
-            }
-        });
-
-        // Close modal on clicking outside
-        document.getElementById('booking-modal').addEventListener('click', function (event) {
-            if (event.target === this) {
-                closeModal();
-            }
-        });
+        function openModal() { document.getElementById("booking-modal").classList.remove("hidden"); document.getElementById("booking-modal").classList.remove("opacity-0"); }
+        function closeModal() { document.getElementById("booking-modal").classList.add("hidden"); document.getElementById("booking-modal").classList.add("opacity-0"); }
     </script>
-
 </body>
-
 </html>
