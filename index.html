@@ -188,54 +188,15 @@
     </section>
 
     <section id="audit" class="py-24 px-6">
-        <div class="max-w-xl mx-auto text-center">
+        <div class="max-w-2xl mx-auto text-center">
             <h2 class="text-3xl md:text-4xl font-bold text-white mb-3">What's driving you crazy?</h2>
             <p class="text-gray-400 mb-8">Tell me in one sentence. I'll send you a video showing how I'd fix it.</p>
-            <form id="contact-form" class="space-y-4">
-                <input type="text" name="workflow" id="workflow" required placeholder="The task that eats your time every single day..." class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-orange-500/50 transition-colors text-center">
-                <input type="email" name="email" id="email" required placeholder="your@email.com" class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-orange-500/50 transition-colors text-center">
-                <button type="submit" id="submit-btn" class="w-full cta-button text-white font-bold text-lg py-4 rounded-xl transition-all">Send It</button>
-            </form>
-            <div id="form-success" class="hidden">
-                <div class="bg-emerald-500/10 border border-emerald-500/30 rounded-xl p-6 mt-4">
-                    <p class="text-emerald-400 font-bold text-lg mb-2">Got it!</p>
-                    <p class="text-gray-400">I'll send you a video within 48 hours. Talk soon.</p>
-                </div>
+            <div class="bg-white rounded-2xl overflow-hidden">
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfYOUR_FORM_ID_HERE/viewform?embedded=true" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
             </div>
             <p class="text-gray-500 text-sm mt-6">I'll reply with a quick video demo. Like it? We talk. Don't? No worries.</p>
         </div>
     </section>
-
-    <script>
-    document.getElementById('contact-form').addEventListener('submit', async function(e) {
-        e.preventDefault();
-        const btn = document.getElementById('submit-btn');
-        const form = document.getElementById('contact-form');
-        const success = document.getElementById('form-success');
-
-        btn.textContent = 'Sending...';
-        btn.disabled = true;
-
-        try {
-            const response = await fetch('https://formspree.io/f/xpwzgvvr', {
-                method: 'POST',
-                headers: { 'Accept': 'application/json' },
-                body: new FormData(form)
-            });
-
-            if (response.ok) {
-                form.classList.add('hidden');
-                success.classList.remove('hidden');
-            } else {
-                btn.textContent = 'Try Again';
-                btn.disabled = false;
-            }
-        } catch (error) {
-            btn.textContent = 'Try Again';
-            btn.disabled = false;
-        }
-    });
-    </script>
 
     <footer class="py-12 px-6 border-t border-white/5">
         <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
