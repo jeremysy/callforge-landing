@@ -45,7 +45,7 @@ if __name__ == "__main__":
 Your business might be in one too - where copy-paste is still how work gets done.
 
 New post on what this means for automation:
-https://callforge.com/blog/parallel-universe-automation.html
+https://callforgr.com/blog/parallel-universe-automation.html
 
 #Automation #AI"""
 
