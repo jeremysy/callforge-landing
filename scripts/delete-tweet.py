@@ -63,23 +63,29 @@ def delete_tweet(tweet_id):
         return False
 
 if __name__ == "__main__":
-    print("Fetching recent tweets to find the one with wrong URL...")
+    print("Fetching recent tweets...")
     tweets = get_recent_tweets()
 
-    # Look for tweet with "callforge.com" (wrong URL)
+    if not tweets:
+        print("No tweets found to delete.")
+        sys.exit(0)
+
+    # Look for tweet with "callforge.com" (wrong URL) - be flexible with the search
     tweet_to_delete = None
     for tweet in tweets:
-        if "callforge.com/blog/parallel" in tweet.text:
+        # Check for wrong domain (without the 'r')
+        if "callforge.com" in tweet.text and "parallel" in tweet.text.lower():
             tweet_to_delete = tweet
             break
 
     if tweet_to_delete:
         print(f"\n🎯 Found tweet with wrong URL:")
         print(f"ID: {tweet_to_delete.id}")
-        print(f"Text: {tweet_to_delete.text}\n")
+        print(f"Full text:\n{tweet_to_delete.text}\n")
         print("Deleting...")
         success = delete_tweet(tweet_to_delete.id)
         sys.exit(0 if success else 1)
     else:
-        print("\nNo tweet found with 'callforge.com' - it may have already been deleted.")
+        print("\n⚠️  No tweet found with 'callforge.com' in recent tweets.")
+        print("All recent tweets appear to have the correct domain or don't match the search.")
         sys.exit(0)
