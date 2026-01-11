@@ -23,7 +23,7 @@ jobs:
         run: |
           pip install -r scripts/requirements.txt
 
-      - name: Delete tweet with wrong URL
+      - name: Delete specific tweet with wrong URL
         env:
           TWITTER_API_KEY: ${{ secrets.TWITTER_API_KEY }}
           TWITTER_API_SECRET: ${{ secrets.TWITTER_API_SECRET }}
@@ -31,4 +31,4 @@ jobs:
           TWITTER_ACCESS_SECRET: ${{ secrets.TWITTER_ACCESS_SECRET }}
           TWITTER_BEARER_TOKEN: ${{ secrets.TWITTER_BEARER_TOKEN }}
         run: |
-          python scripts/delete-tweet.py
+          python scripts/delete-specific-tweet.py
