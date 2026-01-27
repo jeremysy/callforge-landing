@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sylvio Command Center</title>
+  <link rel="icon" href="/favicon.svg">
+  <style>
+    :root {
+      --bg: #0a0a0f;
+      --surface: #12121a;
+      --surface2: #1a1a25;
+      --border: #2a2a3a;
+      --text: #e4e4ef;
+      --text-muted: #8888a0;
+      --accent: #6c5ce7;
+      --accent-glow: rgba(108, 92, 231, 0.15);
+      --green: #00b894;
+      --yellow: #fdcb6e;
+      --red: #e17055;
+      --blue: #74b9ff;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.5;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 0 30px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 30px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-icon {
+      font-size: 28px;
+    }
+
+    .logo h1 {
+      font-size: 22px;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--accent), var(--blue));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .last-updated {
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+
+    .stats-bar {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 16px;
+      margin-bottom: 30px;
+    }
+
+    .stat-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px 20px;
+      text-align: center;
+    }
+
+    .stat-value {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .stat-label {
+      color: var(--text-muted);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .section-title {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 16px;
+      margin-bottom: 30px;
+    }
+
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      transition: border-color 0.2s;
+    }
+
+    .project-card:hover {
+      border-color: var(--accent);
+    }
+
+    .project-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+
+    .project-name {
+      font-size: 16px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .status-badge {
+      font-size: 11px;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+
+    .status-active { background: rgba(0,184,148,0.15); color: var(--green); }
+    .status-blocked { background: rgba(225,112,85,0.15); color: var(--red); }
+    .status-waiting { background: rgba(253,203,110,0.15); color: var(--yellow); }
+    .status-done { background: rgba(116,185,255,0.15); color: var(--blue); }
+
+    .project-tasks {
+      list-style: none;
+      margin-top: 12px;
+    }
+
+    .project-tasks li {
+      padding: 6px 0;
+      font-size: 14px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .project-tasks li .task-icon {
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .task-done { color: var(--green); }
+    .task-blocked { color: var(--red); }
+    .task-pending { color: var(--yellow); }
+    .task-text { flex: 1; }
+
+    .activity-log {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 30px;
+    }
+
+    .log-entry {
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      gap: 12px;
+      font-size: 14px;
+    }
+
+    .log-entry:last-child { border-bottom: none; }
+
+    .log-time {
+      color: var(--text-muted);
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: 12px;
+      white-space: nowrap;
+      min-width: 60px;
+      margin-top: 2px;
+    }
+
+    .log-project {
+      font-weight: 600;
+      color: var(--accent);
+      min-width: 100px;
+    }
+
+    .log-text { color: var(--text); flex: 1; }
+
+    .blocked-section {
+      background: rgba(225,112,85,0.05);
+      border: 1px solid rgba(225,112,85,0.2);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 30px;
+    }
+
+    .blocked-item {
+      padding: 8px 0;
+      font-size: 14px;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .blocked-item .project-tag {
+      background: var(--surface2);
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px 0;
+      color: var(--text-muted);
+      font-size: 12px;
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 768px) {
+      .container { padding: 12px; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .stats-bar { grid-template-columns: repeat(2, 1fr); }
+      header { flex-direction: column; gap: 8px; align-items: flex-start; }
+      .log-entry { flex-direction: column; gap: 4px; }
+      .log-time { min-width: auto; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">
+        <span class="logo-icon">🧠</span>
+        <h1>Sylvio Command Center</h1>
+      </div>
+      <div class="last-updated" id="lastUpdated">Loading...</div>
+    </header>
+
+    <div class="stats-bar" id="statsBar"></div>
+
+    <div class="blocked-section" id="blockedSection">
+      <div class="section-title">🚨 Needs Your Attention</div>
+      <div id="blockedList"></div>
+    </div>
+
+    <div class="section-title">📂 Projects</div>
+    <div class="projects-grid" id="projectsGrid"></div>
+
+    <div class="section-title">📋 Today's Activity</div>
+    <div class="activity-log" id="activityLog"></div>
+
+    <footer>
+      Sylvio Command Center · Auto-updated by Clawdbot · <a href="/" style="color:var(--accent)">callforgr.com</a>
+    </footer>
+  </div>
+
+  <script>
+    async function loadData() {
+      try {
+        const res = await fetch('data.json?' + Date.now());
+        const data = await res.json();
+        render(data);
+      } catch (e) {
+        document.getElementById('lastUpdated').textContent = 'Failed to load data';
+        console.error(e);
+      }
+    }
+
+    function render(data) {
+      // Last updated
+      const updated = new Date(data.lastUpdated);
+      document.getElementById('lastUpdated').textContent =
+        `Last updated: ${updated.toLocaleDateString('en-IL', { timeZone: 'Asia/Jerusalem' })} ${updated.toLocaleTimeString('en-IL', { timeZone: 'Asia/Jerusalem', hour: '2-digit', minute: '2-digit' })} Israel`;
+
+      // Stats
+      const statsBar = document.getElementById('statsBar');
+      const stats = data.stats || {};
+      const statItems = [
+        { value: stats.totalTasks || 0, label: 'Total Tasks', color: 'var(--text)' },
+        { value: stats.completed || 0, label: 'Completed', color: 'var(--green)' },
+        { value: stats.blocked || 0, label: 'Blocked', color: 'var(--red)' },
+        { value: stats.inProgress || 0, label: 'In Progress', color: 'var(--yellow)' },
+        { value: stats.activeProjects || 0, label: 'Active Projects', color: 'var(--accent)' }
+      ];
+      statsBar.innerHTML = statItems.map(s => `
+        <div class="stat-card">
+          <div class="stat-value" style="color:${s.color}">${s.value}</div>
+          <div class="stat-label">${s.label}</div>
+        </div>
+      `).join('');
+
+      // Blocked items
+      const blockedSection = document.getElementById('blockedSection');
+      const blockedList = document.getElementById('blockedList');
+      const blockedItems = (data.projects || []).flatMap(p =>
+        (p.tasks || []).filter(t => t.status === 'blocked').map(t => ({ project: p.name, ...t }))
+      );
+      if (blockedItems.length === 0) {
+        blockedSection.style.display = 'none';
+      } else {
+        blockedList.innerHTML = blockedItems.map(b => `
+          <div class="blocked-item">
+            <span>🔴</span>
+            <span class="project-tag">${b.project}</span>
+            <span>${b.text}</span>
+          </div>
+        `).join('');
+      }
+
+      // Projects
+      const grid = document.getElementById('projectsGrid');
+      grid.innerHTML = (data.projects || []).map(p => {
+        const statusClass = {
+          active: 'status-active',
+          blocked: 'status-blocked',
+          waiting: 'status-waiting',
+          done: 'status-done'
+        }[p.status] || 'status-active';
+
+        const taskIcons = { done: '✅', blocked: '🔴', pending: '🟡', active: '🔵' };
+
+        const tasksHtml = (p.tasks || []).map(t => `
+          <li>
+            <span class="task-icon">${taskIcons[t.status] || '⚪'}</span>
+            <span class="task-text">${t.text}</span>
+          </li>
+        `).join('');
+
+        return `
+          <div class="project-card">
+            <div class="project-header">
+              <div class="project-name">${p.emoji || '📁'} ${p.name}</div>
+              <span class="status-badge ${statusClass}">${p.status}</span>
+            </div>
+            <div style="color:var(--text-muted);font-size:13px;">${p.description || ''}</div>
+            <ul class="project-tasks">${tasksHtml}</ul>
+          </div>
+        `;
+      }).join('');
+
+      // Activity log
+      const log = document.getElementById('activityLog');
+      log.innerHTML = (data.activity || []).map(a => `
+        <div class="log-entry">
+          <span class="log-time">${a.time || ''}</span>
+          <span class="log-project">${a.project || ''}</span>
+          <span class="log-text">${a.text || ''}</span>
+        </div>
+      `).join('') || '<div style="color:var(--text-muted);text-align:center;padding:20px;">No activity logged today</div>';
+    }
+
+    loadData();
+    // Auto-refresh every 5 minutes
+    setInterval(loadData, 300000);
+  </script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+{
+  "lastUpdated": "2026-01-27T13:57:00Z",
+  "stats": {
+    "totalTasks": 23,
+    "completed": 12,
+    "blocked": 5,
+    "inProgress": 6,
+    "activeProjects": 6
+  },
+  "projects": [
+    {
+      "name": "CallForgr / Twitter",
+      "emoji": "🐦",
+      "status": "blocked",
+      "description": "Twitter growth via @Callforge — trend-jacking, viral replies, AI expertise positioning",
+      "tasks": [
+        { "status": "done", "text": "Twitter automation repo found + test tweet bug fixed" },
+        { "status": "done", "text": "Reply-to-tweet GitHub Action created" },
+        { "status": "done", "text": "CDP cookie injection for browser auth" },
+        { "status": "done", "text": "Posted 5 viral replies (Elon, rezoundous, andrewzacker, etc.)" },
+        { "status": "done", "text": "3x/day tweet schedule set up (9am, 2pm, 8pm Israel)" },
+        { "status": "done", "text": "Twitter strategy doc written" },
+        { "status": "done", "text": "Posted 2 tweets via API (AI slop, Kimi K2.5)" },
+        { "status": "blocked", "text": "Rate limited — 0/17 daily quota, resets ~3:30 AM UTC Wed" },
+        { "status": "blocked", "text": "Browser cookies expired — need fresh auth from Sylvan" },
+        { "status": "pending", "text": "Decide: upgrade API tier ($100/mo) or stay on free tier" }
+      ]
+    },
+    {
+      "name": "Westclox",
+      "emoji": "📧",
+      "status": "blocked",
+      "description": "Cold email outreach to hotels via Apollo sequences",
+      "tasks": [
+        { "status": "done", "text": "Email V2 content populated for all 106 contacts" },
+        { "status": "blocked", "text": "106 contacts stuck at 'not_sent' — need manual Apollo UI re-enroll (2 min)" },
+        { "status": "done", "text": "Automation ideas doc written (self-improving emails, intent signals, campaign briefs)" }
+      ]
+    },
+    {
+      "name": "Morningful.ai",
+      "emoji": "🌅",
+      "status": "waiting",
+      "description": "AI-powered QBO insights platform — Sylvan is CTO",
+      "tasks": [
+        { "status": "done", "text": "Architecture doc: Next.js + Supabase stack, multi-tenant with RLS" },
+        { "status": "done", "text": "QBO data model mapped (Invoice, Bill, Purchase, Payment, Vendor, Customer)" },
+        { "status": "done", "text": "AI insights engine designed (6 analysis modules)" },
+        { "status": "done", "text": "4-phase implementation plan written (MVP → AI → Multi-tenant → Advanced)" },
+        { "status": "blocked", "text": "Need QBO OAuth token re-authorization from Sylvan" },
+        { "status": "pending", "text": "Start Phase 1 MVP implementation" }
+      ]
+    },
+    {
+      "name": "Regency Portal",
+      "emoji": "🏗️",
+      "status": "active",
+      "description": "Firebase budget portal syncing QBO with Google Sheets",
+      "tasks": [
+        { "status": "done", "text": "Kanban board with drag-and-drop (restricted to Sylvan)" },
+        { "status": "done", "text": "GitHub Actions CI/CD pipeline" },
+        { "status": "done", "text": "Sheets sync fixed (service account key issue resolved)" },
+        { "status": "blocked", "text": "Rotate Google service account key (exposed in chat)" }
+      ]
+    },
+    {
+      "name": "Flycomm",
+      "emoji": "✈️",
+      "status": "waiting",
+      "description": "Canadian wireless/telecom outreach via LinkedIn connections",
+      "tasks": [
+        { "status": "pending", "text": "Sylvan to export LinkedIn connections CSV" },
+        { "status": "pending", "text": "Find Canadian wireless/telecom contacts for outreach" }
+      ]
+    },
+    {
+      "name": "Server / Infrastructure",
+      "emoji": "🔒",
+      "status": "done",
+      "description": "VPS security hardening + tooling",
+      "tasks": [
+        { "status": "done", "text": "SSH key-only auth, firewall, fail2ban (3 strikes = 24h ban)" },
+        { "status": "done", "text": "Groq Whisper voice transcription set up" },
+        { "status": "done", "text": "xAI / Grok API configured ($5 credit)" }
+      ]
+    }
+  ],
+  "activity": [
+    { "time": "02:30", "project": "Twitter", "text": "Found automation repo, fixed test tweet bug posting real tweets every run" },
+    { "time": "03:00", "project": "Twitter", "text": "Set up API creds, CDP cookie injection, browser auth" },
+    { "time": "03:30", "project": "Twitter", "text": "Posted 5 viral replies (Elon 14M views, andrewzacker 34K views, etc.)" },
+    { "time": "04:00", "project": "Twitter", "text": "Account locked from rapid-fire replies — Sylvan unlocked via email" },
+    { "time": "04:30", "project": "Infra", "text": "Groq Whisper set up for voice note transcription" },
+    { "time": "05:00", "project": "Twitter", "text": "Built 3x/day tweet schedule, strategy doc, cron monitoring unlock status" },
+    { "time": "06:33", "project": "Twitter", "text": "Posted 2 tweets (AI slop hot take, Kimi K2.5) — hit rate limits on 2 more" },
+    { "time": "06:48", "project": "Morningful", "text": "Researched QBO integration, wrote 4 architecture docs" },
+    { "time": "08:00", "project": "Twitter", "text": "Redesigned to 3 single-tweet slots/day to avoid rate limit drama" },
+    { "time": "10:00", "project": "Flycomm", "text": "Set reminder for LinkedIn connections export" },
+    { "time": "12:19", "project": "Arete", "text": "xAI/Grok API key saved, tested X search for RR news (Microsoft partnership)" },
+    { "time": "12:39", "project": "Westclox", "text": "Apollo API can't fix stuck contacts — needs manual UI re-enroll" },
+    { "time": "12:45", "project": "Ideator", "text": "Extracted YouTube transcript, wrote Westclox automation playbook" },
+    { "time": "13:57", "project": "Meta", "text": "Building Sylvio Command Center dashboard" }
+  ]
+}
