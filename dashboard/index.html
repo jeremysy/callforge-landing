@@ -6,29 +6,18 @@
   <title>Sylvio Command Center</title>
   <link rel="icon" href="/favicon.svg">
   <style>
+    /* Auth wall */
     .auth-wall {
-      position: fixed;
-      inset: 0;
-      background: #0a0a0f;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-      flex-direction: column;
-      gap: 16px;
+      position: fixed; inset: 0; background: #0a0a0f;
+      display: flex; align-items: center; justify-content: center;
+      z-index: 9999; flex-direction: column; gap: 16px;
     }
     .auth-wall.hidden { display: none; }
-    .auth-wall .logo-icon { font-size: 48px; }
+    .auth-wall .logo-big { font-size: 48px; }
     .auth-wall input {
-      background: #1a1a25;
-      border: 1px solid #2a2a3a;
-      color: #e4e4ef;
-      padding: 12px 20px;
-      border-radius: 8px;
-      font-size: 16px;
-      width: 260px;
-      text-align: center;
-      outline: none;
+      background: #1a1a25; border: 1px solid #2a2a3a; color: #e4e4ef;
+      padding: 12px 20px; border-radius: 8px; font-size: 16px;
+      width: 260px; text-align: center; outline: none;
     }
     .auth-wall input:focus { border-color: #6c5ce7; }
     .auth-wall .error { color: #e17055; font-size: 13px; min-height: 20px; }
@@ -36,316 +25,286 @@
     .app-content.visible { display: block; }
 
     :root {
-      --bg: #0a0a0f;
-      --surface: #12121a;
-      --surface2: #1a1a25;
-      --border: #2a2a3a;
-      --text: #e4e4ef;
-      --text-muted: #8888a0;
-      --accent: #6c5ce7;
-      --accent-glow: rgba(108, 92, 231, 0.15);
-      --green: #00b894;
-      --yellow: #fdcb6e;
-      --red: #e17055;
-      --blue: #74b9ff;
+      --bg: #0a0a0f; --surface: #12121a; --surface2: #1a1a25;
+      --border: #2a2a3a; --text: #e4e4ef; --text-muted: #8888a0;
+      --accent: #6c5ce7; --green: #00b894; --yellow: #fdcb6e;
+      --red: #e17055; --blue: #74b9ff;
     }
-
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      min-height: 100vh;
-      line-height: 1.5;
+      background: var(--bg); color: var(--text); min-height: 100vh; line-height: 1.5;
     }
+    .container { max-width: 1100px; margin: 0 auto; padding: 16px 20px; }
 
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-
+    /* Header */
     header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 20px 0 30px;
-      border-bottom: 1px solid var(--border);
-      margin-bottom: 30px;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 0 20px; border-bottom: 1px solid var(--border); margin-bottom: 20px;
     }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .logo-icon {
-      font-size: 28px;
-    }
-
+    .logo { display: flex; align-items: center; gap: 10px; }
     .logo h1 {
-      font-size: 22px;
-      font-weight: 700;
+      font-size: 20px; font-weight: 700;
       background: linear-gradient(135deg, var(--accent), var(--blue));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     }
+    .meta-info { color: var(--text-muted); font-size: 12px; text-align: right; }
 
-    .last-updated {
-      color: var(--text-muted);
-      font-size: 13px;
+    /* Tabs */
+    .tabs {
+      display: flex; gap: 4px; margin-bottom: 24px;
+      border-bottom: 1px solid var(--border); padding-bottom: 0;
     }
-
-    .stats-bar {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 16px;
-      margin-bottom: 30px;
+    .tab {
+      padding: 10px 20px; font-size: 14px; font-weight: 500; cursor: pointer;
+      color: var(--text-muted); border-bottom: 2px solid transparent;
+      transition: all 0.2s; background: none; border-top: none;
+      border-left: none; border-right: none;
     }
+    .tab:hover { color: var(--text); }
+    .tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
 
-    .stat-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 16px 20px;
-      text-align: center;
+    /* Stats row */
+    .stats-row {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 12px; margin-bottom: 24px;
     }
-
-    .stat-value {
-      font-size: 28px;
-      font-weight: 700;
-      margin-bottom: 4px;
+    .stat {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 10px; padding: 14px 16px; text-align: center;
     }
+    .stat-val { font-size: 26px; font-weight: 700; }
+    .stat-lbl { color: var(--text-muted); font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; }
 
-    .stat-label {
-      color: var(--text-muted);
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
+    /* Summary cards */
+    .summary-section { margin-bottom: 24px; }
+    .section-head {
+      font-size: 14px; font-weight: 600; margin-bottom: 12px;
+      display: flex; align-items: center; gap: 8px;
     }
+    .alert-list { display: flex; flex-direction: column; gap: 8px; }
+    .alert-item {
+      background: rgba(225,112,85,0.06); border: 1px solid rgba(225,112,85,0.15);
+      border-radius: 8px; padding: 10px 14px; font-size: 13px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .alert-tag {
+      background: var(--surface2); padding: 2px 8px; border-radius: 5px;
+      font-size: 11px; font-weight: 600; white-space: nowrap;
+    }
+    .highlight-list { display: flex; flex-direction: column; gap: 6px; }
+    .highlight-item {
+      font-size: 13px; color: var(--text-muted); padding: 4px 0;
+      display: flex; gap: 8px;
+    }
+    .highlight-item span:first-child { flex-shrink: 0; }
 
-    .section-title {
-      font-size: 16px;
-      font-weight: 600;
+    /* Project table */
+    .table-controls {
+      display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; align-items: center;
+    }
+    .filter-btn {
+      padding: 6px 14px; font-size: 12px; border-radius: 20px;
+      border: 1px solid var(--border); background: var(--surface);
+      color: var(--text-muted); cursor: pointer; transition: all 0.2s;
+    }
+    .filter-btn:hover { border-color: var(--accent); color: var(--text); }
+    .filter-btn.active { background: var(--accent); color: white; border-color: var(--accent); }
+    .search-input {
+      margin-left: auto; padding: 6px 14px; font-size: 12px;
+      border-radius: 20px; border: 1px solid var(--border);
+      background: var(--surface); color: var(--text); outline: none; width: 200px;
+    }
+    .search-input:focus { border-color: var(--accent); }
+
+    table {
+      width: 100%; border-collapse: collapse; font-size: 13px;
+    }
+    th {
+      text-align: left; padding: 10px 12px; color: var(--text-muted);
+      font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px;
+      border-bottom: 1px solid var(--border); cursor: pointer;
+      user-select: none; white-space: nowrap;
+    }
+    th:hover { color: var(--text); }
+    th .sort-arrow { margin-left: 4px; font-size: 10px; }
+    td {
+      padding: 10px 12px; border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+    tr:hover td { background: rgba(108,92,231,0.04); }
+    .badge {
+      display: inline-block; font-size: 10px; padding: 2px 8px;
+      border-radius: 12px; font-weight: 600; text-transform: uppercase;
+    }
+    .badge-done { background: rgba(0,184,148,0.15); color: var(--green); }
+    .badge-blocked { background: rgba(225,112,85,0.15); color: var(--red); }
+    .badge-pending { background: rgba(253,203,110,0.15); color: var(--yellow); }
+    .badge-active { background: rgba(108,92,231,0.15); color: var(--accent); }
+    .badge-waiting { background: rgba(253,203,110,0.15); color: var(--yellow); }
+
+    /* Project detail panel */
+    .project-detail {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 10px; padding: 20px; margin-bottom: 20px;
+    }
+    .project-detail-header {
+      display: flex; align-items: center; justify-content: space-between;
       margin-bottom: 16px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
     }
-
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 16px;
-      margin-bottom: 30px;
+    .project-detail-title { font-size: 18px; font-weight: 600; }
+    .project-detail-desc { color: var(--text-muted); font-size: 13px; margin-bottom: 16px; }
+    .task-list { list-style: none; }
+    .task-list li {
+      padding: 8px 0; font-size: 13px; display: flex; align-items: flex-start;
+      gap: 8px; border-bottom: 1px solid var(--border);
     }
-
-    .project-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 20px;
-      transition: border-color 0.2s;
+    .task-list li:last-child { border-bottom: none; }
+    .close-detail {
+      background: none; border: 1px solid var(--border); color: var(--text-muted);
+      padding: 4px 12px; border-radius: 6px; cursor: pointer; font-size: 12px;
     }
+    .close-detail:hover { border-color: var(--accent); color: var(--text); }
 
-    .project-card:hover {
-      border-color: var(--accent);
+    /* Activity timeline */
+    .timeline { position: relative; padding-left: 20px; }
+    .timeline::before {
+      content: ''; position: absolute; left: 6px; top: 0; bottom: 0;
+      width: 2px; background: var(--border);
     }
-
-    .project-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 12px;
+    .tl-item {
+      position: relative; padding: 8px 0 8px 16px; font-size: 13px;
     }
-
-    .project-name {
-      font-size: 16px;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 8px;
+    .tl-item::before {
+      content: ''; position: absolute; left: -17px; top: 14px;
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--accent); border: 2px solid var(--bg);
     }
-
-    .status-badge {
-      font-size: 11px;
-      padding: 3px 10px;
-      border-radius: 20px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.3px;
+    .tl-time {
+      color: var(--text-muted); font-family: 'SF Mono', monospace;
+      font-size: 11px; margin-right: 8px;
     }
-
-    .status-active { background: rgba(0,184,148,0.15); color: var(--green); }
-    .status-blocked { background: rgba(225,112,85,0.15); color: var(--red); }
-    .status-waiting { background: rgba(253,203,110,0.15); color: var(--yellow); }
-    .status-done { background: rgba(116,185,255,0.15); color: var(--blue); }
-
-    .project-tasks {
-      list-style: none;
-      margin-top: 12px;
-    }
-
-    .project-tasks li {
-      padding: 6px 0;
-      font-size: 14px;
-      color: var(--text-muted);
-      display: flex;
-      align-items: flex-start;
-      gap: 8px;
-    }
-
-    .project-tasks li .task-icon {
-      flex-shrink: 0;
-      margin-top: 2px;
-    }
-
-    .task-done { color: var(--green); }
-    .task-blocked { color: var(--red); }
-    .task-pending { color: var(--yellow); }
-    .task-text { flex: 1; }
-
-    .activity-log {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 20px;
-      margin-bottom: 30px;
-    }
-
-    .log-entry {
-      padding: 10px 0;
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      gap: 12px;
-      font-size: 14px;
-    }
-
-    .log-entry:last-child { border-bottom: none; }
-
-    .log-time {
-      color: var(--text-muted);
-      font-family: 'SF Mono', 'Fira Code', monospace;
-      font-size: 12px;
-      white-space: nowrap;
-      min-width: 60px;
-      margin-top: 2px;
-    }
-
-    .log-project {
-      font-weight: 600;
-      color: var(--accent);
-      min-width: 100px;
-    }
-
-    .log-text { color: var(--text); flex: 1; }
-
-    .blocked-section {
-      background: rgba(225,112,85,0.05);
-      border: 1px solid rgba(225,112,85,0.2);
-      border-radius: 12px;
-      padding: 20px;
-      margin-bottom: 30px;
-    }
-
-    .blocked-item {
-      padding: 8px 0;
-      font-size: 14px;
-      display: flex;
-      align-items: flex-start;
-      gap: 8px;
-    }
-
-    .blocked-item .project-tag {
-      background: var(--surface2);
-      padding: 2px 8px;
-      border-radius: 6px;
-      font-size: 12px;
-      font-weight: 600;
-      white-space: nowrap;
-    }
+    .tl-project { color: var(--accent); font-weight: 600; margin-right: 6px; }
+    .tl-text { color: var(--text); }
 
     footer {
-      text-align: center;
-      padding: 20px 0;
-      color: var(--text-muted);
-      font-size: 12px;
-      border-top: 1px solid var(--border);
+      text-align: center; padding: 20px 0; color: var(--text-muted);
+      font-size: 11px; border-top: 1px solid var(--border); margin-top: 20px;
     }
+    footer a { color: var(--accent); }
 
     @media (max-width: 768px) {
-      .container { padding: 12px; }
-      .projects-grid { grid-template-columns: 1fr; }
-      .stats-bar { grid-template-columns: repeat(2, 1fr); }
+      .container { padding: 10px 14px; }
+      .stats-row { grid-template-columns: repeat(2, 1fr); }
       header { flex-direction: column; gap: 8px; align-items: flex-start; }
-      .log-entry { flex-direction: column; gap: 4px; }
-      .log-time { min-width: auto; }
+      .tabs { overflow-x: auto; }
+      .search-input { margin-left: 0; width: 100%; }
+      .table-controls { flex-direction: column; }
+      table { font-size: 12px; }
+      th, td { padding: 8px 6px; }
     }
   </style>
 </head>
 <body>
   <div class="auth-wall" id="authWall">
-    <span class="logo-icon">🧠</span>
+    <span class="logo-big">🧠</span>
     <input type="password" id="authInput" placeholder="Password" autofocus>
     <div class="error" id="authError"></div>
   </div>
+
   <div class="app-content" id="appContent">
-  <div class="container">
-    <header>
-      <div class="logo">
-        <span class="logo-icon">🧠</span>
-        <h1>Sylvio Command Center</h1>
+    <div class="container">
+      <header>
+        <div class="logo">
+          <span>🧠</span>
+          <h1>Sylvio Command Center</h1>
+        </div>
+        <div class="meta-info">
+          <div id="lastUpdated">Loading...</div>
+          <div id="dateRange"></div>
+        </div>
+      </header>
+
+      <div class="tabs">
+        <button class="tab active" data-tab="summary">Summary</button>
+        <button class="tab" data-tab="projects">Projects</button>
+        <button class="tab" data-tab="activity">Activity</button>
       </div>
-      <div class="last-updated" id="lastUpdated">Loading...</div>
-    </header>
 
-    <div class="stats-bar" id="statsBar"></div>
+      <!-- SUMMARY TAB -->
+      <div class="tab-panel active" id="tab-summary">
+        <div class="stats-row" id="statsRow"></div>
 
-    <div class="blocked-section" id="blockedSection">
-      <div class="section-title">🚨 Needs Your Attention</div>
-      <div id="blockedList"></div>
+        <div class="summary-section" id="blockedSection">
+          <div class="section-head">🚨 Needs Your Attention</div>
+          <div class="alert-list" id="blockedList"></div>
+        </div>
+
+        <div class="summary-section">
+          <div class="section-head">✅ Completed Today</div>
+          <div class="highlight-list" id="completedList"></div>
+        </div>
+
+        <div class="summary-section">
+          <div class="section-head">🔵 In Progress</div>
+          <div class="highlight-list" id="inProgressList"></div>
+        </div>
+      </div>
+
+      <!-- PROJECTS TAB -->
+      <div class="tab-panel" id="tab-projects">
+        <div class="table-controls">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="active">Active</button>
+          <button class="filter-btn" data-filter="blocked">Blocked</button>
+          <button class="filter-btn" data-filter="waiting">Waiting</button>
+          <button class="filter-btn" data-filter="done">Done</button>
+          <input type="text" class="search-input" id="searchInput" placeholder="Search tasks...">
+        </div>
+
+        <div id="projectDetail" style="display:none;"></div>
+
+        <table id="projectTable">
+          <thead>
+            <tr>
+              <th data-sort="name">Project <span class="sort-arrow"></span></th>
+              <th data-sort="status">Status <span class="sort-arrow"></span></th>
+              <th data-sort="done">Done <span class="sort-arrow"></span></th>
+              <th data-sort="blocked">Blocked <span class="sort-arrow"></span></th>
+              <th data-sort="pending">Pending <span class="sort-arrow"></span></th>
+              <th data-sort="total">Total <span class="sort-arrow"></span></th>
+            </tr>
+          </thead>
+          <tbody id="projectTableBody"></tbody>
+        </table>
+      </div>
+
+      <!-- ACTIVITY TAB -->
+      <div class="tab-panel" id="tab-activity">
+        <div class="timeline" id="timeline"></div>
+      </div>
+
+      <footer>
+        Sylvio Command Center · Auto-updated by Clawdbot · <a href="/">callforgr.com</a>
+      </footer>
     </div>
-
-    <div class="section-title">📂 Projects</div>
-    <div class="projects-grid" id="projectsGrid"></div>
-
-    <div class="section-title">📋 Today's Activity</div>
-    <div class="activity-log" id="activityLog"></div>
-
-    <footer>
-      Sylvio Command Center · Auto-updated by Clawdbot · <a href="/" style="color:var(--accent)">callforgr.com</a>
-    </footer>
   </div>
 
-  </div><!-- /app-content -->
   <script>
-    // SHA-256 hash check (password not stored in plaintext)
+    // --- Auth ---
     async function sha256(str) {
       const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
-      return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
+      return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,'0')).join('');
     }
-
     const PASS_HASH = '98919a67cc8e05e582c5c4e080d71c3f0c37db3f7c312792d9db98b42b015ed4';
-    const SESSION_KEY = 'sylvio_auth';
-
-    async function checkAuth(password) {
-      const hash = await sha256(password);
-      return hash === PASS_HASH;
-    }
-
     function initAuth() {
-      if (sessionStorage.getItem(SESSION_KEY) === 'true') {
-        unlock();
-        return;
-      }
+      if (sessionStorage.getItem('sylvio_auth') === 'true') { unlock(); return; }
       document.getElementById('authInput').addEventListener('keydown', async (e) => {
         if (e.key === 'Enter') {
-          const val = e.target.value;
-          if (await checkAuth(val)) {
-            sessionStorage.setItem(SESSION_KEY, 'true');
-            unlock();
+          if (await sha256(e.target.value) === PASS_HASH) {
+            sessionStorage.setItem('sylvio_auth', 'true'); unlock();
           } else {
             document.getElementById('authError').textContent = 'Wrong password';
             e.target.value = '';
@@ -353,111 +312,233 @@
         }
       });
     }
-
     function unlock() {
       document.getElementById('authWall').classList.add('hidden');
       document.getElementById('appContent').classList.add('visible');
       loadData();
     }
-
     initAuth();
+
+    // --- Data ---
+    let DATA = null;
+    let currentFilter = 'all';
+    let currentSort = { col: 'status', dir: 'asc' };
+    let searchQuery = '';
 
     async function loadData() {
       try {
         const res = await fetch('data.json?' + Date.now());
-        const data = await res.json();
-        render(data);
-      } catch (e) {
-        document.getElementById('lastUpdated').textContent = 'Failed to load data';
-        console.error(e);
+        DATA = await res.json();
+        renderAll();
+      } catch(e) {
+        document.getElementById('lastUpdated').textContent = 'Failed to load';
       }
     }
 
-    function render(data) {
-      // Last updated
-      const updated = new Date(data.lastUpdated);
-      document.getElementById('lastUpdated').textContent =
-        `Last updated: ${updated.toLocaleDateString('en-IL', { timeZone: 'Asia/Jerusalem' })} ${updated.toLocaleTimeString('en-IL', { timeZone: 'Asia/Jerusalem', hour: '2-digit', minute: '2-digit' })} Israel`;
+    function renderAll() {
+      renderMeta();
+      renderStats();
+      renderSummary();
+      renderProjectTable();
+      renderTimeline();
+    }
 
-      // Stats
-      const statsBar = document.getElementById('statsBar');
-      const stats = data.stats || {};
-      const statItems = [
-        { value: stats.totalTasks || 0, label: 'Total Tasks', color: 'var(--text)' },
-        { value: stats.completed || 0, label: 'Completed', color: 'var(--green)' },
-        { value: stats.blocked || 0, label: 'Blocked', color: 'var(--red)' },
-        { value: stats.inProgress || 0, label: 'In Progress', color: 'var(--yellow)' },
-        { value: stats.activeProjects || 0, label: 'Active Projects', color: 'var(--accent)' }
+    function renderMeta() {
+      const d = new Date(DATA.lastUpdated);
+      const opts = { timeZone: 'Asia/Jerusalem', hour: '2-digit', minute: '2-digit' };
+      const dateOpts = { timeZone: 'Asia/Jerusalem', weekday: 'short', month: 'short', day: 'numeric' };
+      document.getElementById('lastUpdated').textContent =
+        `Updated ${d.toLocaleDateString('en-US', dateOpts)} at ${d.toLocaleTimeString('en-US', opts)}`;
+    }
+
+    function renderStats() {
+      const s = DATA.stats || {};
+      const items = [
+        { v: s.activeProjects||0, l: 'Projects', c: 'var(--accent)' },
+        { v: s.totalTasks||0, l: 'Total Tasks', c: 'var(--text)' },
+        { v: s.completed||0, l: 'Completed', c: 'var(--green)' },
+        { v: s.inProgress||0, l: 'In Progress', c: 'var(--yellow)' },
+        { v: s.blocked||0, l: 'Blocked', c: 'var(--red)' },
       ];
-      statsBar.innerHTML = statItems.map(s => `
-        <div class="stat-card">
-          <div class="stat-value" style="color:${s.color}">${s.value}</div>
-          <div class="stat-label">${s.label}</div>
+      document.getElementById('statsRow').innerHTML = items.map(i => `
+        <div class="stat">
+          <div class="stat-val" style="color:${i.c}">${i.v}</div>
+          <div class="stat-lbl">${i.l}</div>
         </div>
       `).join('');
+    }
+
+    function renderSummary() {
+      const projects = DATA.projects || [];
 
       // Blocked items
-      const blockedSection = document.getElementById('blockedSection');
-      const blockedList = document.getElementById('blockedList');
-      const blockedItems = (data.projects || []).flatMap(p =>
-        (p.tasks || []).filter(t => t.status === 'blocked').map(t => ({ project: p.name, ...t }))
+      const blocked = projects.flatMap(p =>
+        (p.tasks||[]).filter(t => t.status==='blocked').map(t => ({ project: p.name, emoji: p.emoji, text: t.text }))
       );
-      if (blockedItems.length === 0) {
-        blockedSection.style.display = 'none';
-      } else {
-        blockedList.innerHTML = blockedItems.map(b => `
-          <div class="blocked-item">
+      const bs = document.getElementById('blockedSection');
+      if (!blocked.length) { bs.style.display = 'none'; }
+      else {
+        bs.style.display = 'block';
+        document.getElementById('blockedList').innerHTML = blocked.map(b => `
+          <div class="alert-item">
             <span>🔴</span>
-            <span class="project-tag">${b.project}</span>
+            <span class="alert-tag">${b.emoji} ${b.project}</span>
             <span>${b.text}</span>
           </div>
         `).join('');
       }
 
-      // Projects
-      const grid = document.getElementById('projectsGrid');
-      grid.innerHTML = (data.projects || []).map(p => {
-        const statusClass = {
-          active: 'status-active',
-          blocked: 'status-blocked',
-          waiting: 'status-waiting',
-          done: 'status-done'
-        }[p.status] || 'status-active';
+      // Completed
+      const done = projects.flatMap(p =>
+        (p.tasks||[]).filter(t => t.status==='done').map(t => ({ project: p.name, emoji: p.emoji, text: t.text }))
+      );
+      document.getElementById('completedList').innerHTML = done.length
+        ? done.map(d => `<div class="highlight-item"><span>✅</span><span>${d.emoji} <strong>${d.project}</strong> — ${d.text}</span></div>`).join('')
+        : '<div style="color:var(--text-muted);font-size:13px;">Nothing completed yet today</div>';
 
-        const taskIcons = { done: '✅', blocked: '🔴', pending: '🟡', active: '🔵' };
-
-        const tasksHtml = (p.tasks || []).map(t => `
-          <li>
-            <span class="task-icon">${taskIcons[t.status] || '⚪'}</span>
-            <span class="task-text">${t.text}</span>
-          </li>
-        `).join('');
-
-        return `
-          <div class="project-card">
-            <div class="project-header">
-              <div class="project-name">${p.emoji || '📁'} ${p.name}</div>
-              <span class="status-badge ${statusClass}">${p.status}</span>
-            </div>
-            <div style="color:var(--text-muted);font-size:13px;">${p.description || ''}</div>
-            <ul class="project-tasks">${tasksHtml}</ul>
-          </div>
-        `;
-      }).join('');
-
-      // Activity log
-      const log = document.getElementById('activityLog');
-      log.innerHTML = (data.activity || []).map(a => `
-        <div class="log-entry">
-          <span class="log-time">${a.time || ''}</span>
-          <span class="log-project">${a.project || ''}</span>
-          <span class="log-text">${a.text || ''}</span>
-        </div>
-      `).join('') || '<div style="color:var(--text-muted);text-align:center;padding:20px;">No activity logged today</div>';
+      // In progress
+      const active = projects.flatMap(p =>
+        (p.tasks||[]).filter(t => t.status==='active'||t.status==='pending').map(t => ({ project: p.name, emoji: p.emoji, text: t.text, status: t.status }))
+      );
+      document.getElementById('inProgressList').innerHTML = active.length
+        ? active.map(a => `<div class="highlight-item"><span>${a.status==='active'?'🔵':'🟡'}</span><span>${a.emoji} <strong>${a.project}</strong> — ${a.text}</span></div>`).join('')
+        : '<div style="color:var(--text-muted);font-size:13px;">Nothing in progress</div>';
     }
 
-    loadData();
-    // Auto-refresh every 5 minutes
+    function getProjectCounts(p) {
+      const tasks = p.tasks || [];
+      return {
+        done: tasks.filter(t => t.status==='done').length,
+        blocked: tasks.filter(t => t.status==='blocked').length,
+        pending: tasks.filter(t => t.status==='pending'||t.status==='active').length,
+        total: tasks.length
+      };
+    }
+
+    function renderProjectTable() {
+      const projects = (DATA.projects || [])
+        .filter(p => {
+          if (currentFilter !== 'all' && p.status !== currentFilter) return false;
+          if (searchQuery) {
+            const q = searchQuery.toLowerCase();
+            const inName = p.name.toLowerCase().includes(q);
+            const inTasks = (p.tasks||[]).some(t => t.text.toLowerCase().includes(q));
+            if (!inName && !inTasks) return false;
+          }
+          return true;
+        })
+        .map(p => ({ ...p, counts: getProjectCounts(p) }))
+        .sort((a, b) => {
+          const { col, dir } = currentSort;
+          let va, vb;
+          if (col === 'name') { va = a.name; vb = b.name; }
+          else if (col === 'status') {
+            const order = { blocked: 0, active: 1, waiting: 2, done: 3 };
+            va = order[a.status]??9; vb = order[b.status]??9;
+          }
+          else { va = a.counts[col]||0; vb = b.counts[col]||0; }
+          if (va < vb) return dir==='asc' ? -1 : 1;
+          if (va > vb) return dir==='asc' ? 1 : -1;
+          return 0;
+        });
+
+      const badgeClass = { done:'badge-done', blocked:'badge-blocked', active:'badge-active', waiting:'badge-waiting', pending:'badge-pending' };
+
+      document.getElementById('projectTableBody').innerHTML = projects.map(p => `
+        <tr style="cursor:pointer" data-project="${p.name}">
+          <td><strong>${p.emoji||'📁'} ${p.name}</strong><br><span style="color:var(--text-muted);font-size:11px;">${p.description||''}</span></td>
+          <td><span class="badge ${badgeClass[p.status]||''}">${p.status}</span></td>
+          <td style="color:var(--green)">${p.counts.done}</td>
+          <td style="color:var(--red)">${p.counts.blocked}</td>
+          <td style="color:var(--yellow)">${p.counts.pending}</td>
+          <td>${p.counts.total}</td>
+        </tr>
+      `).join('');
+
+      // Click rows to show detail
+      document.querySelectorAll('#projectTableBody tr').forEach(tr => {
+        tr.addEventListener('click', () => showProjectDetail(tr.dataset.project));
+      });
+    }
+
+    function showProjectDetail(name) {
+      const p = (DATA.projects||[]).find(x => x.name === name);
+      if (!p) return;
+      const icons = { done:'✅', blocked:'🔴', pending:'🟡', active:'🔵' };
+      const badgeClass = { done:'badge-done', blocked:'badge-blocked', active:'badge-active', waiting:'badge-waiting', pending:'badge-pending' };
+      const el = document.getElementById('projectDetail');
+      el.style.display = 'block';
+      el.innerHTML = `
+        <div class="project-detail">
+          <div class="project-detail-header">
+            <div class="project-detail-title">${p.emoji||'📁'} ${p.name}
+              <span class="badge ${badgeClass[p.status]||''}" style="margin-left:8px;">${p.status}</span>
+            </div>
+            <button class="close-detail" id="closeDetail">✕ Close</button>
+          </div>
+          <div class="project-detail-desc">${p.description||''}</div>
+          <ul class="task-list">
+            ${(p.tasks||[]).map(t => `<li><span>${icons[t.status]||'⚪'}</span><span>${t.text}</span></li>`).join('')}
+          </ul>
+        </div>
+      `;
+      document.getElementById('closeDetail').addEventListener('click', () => { el.style.display='none'; });
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function renderTimeline() {
+      document.getElementById('timeline').innerHTML = (DATA.activity||[]).map(a => `
+        <div class="tl-item">
+          <span class="tl-time">${a.time||''}</span>
+          <span class="tl-project">${a.project||''}</span>
+          <span class="tl-text">${a.text||''}</span>
+        </div>
+      `).join('') || '<div style="color:var(--text-muted);padding:20px;text-align:center;">No activity today</div>';
+    }
+
+    // --- Tabs ---
+    document.querySelectorAll('.tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById('tab-' + tab.dataset.tab).classList.add('active');
+      });
+    });
+
+    // --- Filters ---
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentFilter = btn.dataset.filter;
+        renderProjectTable();
+      });
+    });
+
+    // --- Sort ---
+    document.querySelectorAll('th[data-sort]').forEach(th => {
+      th.addEventListener('click', () => {
+        const col = th.dataset.sort;
+        if (currentSort.col === col) {
+          currentSort.dir = currentSort.dir==='asc' ? 'desc' : 'asc';
+        } else {
+          currentSort = { col, dir: 'asc' };
+        }
+        // Update arrows
+        document.querySelectorAll('th .sort-arrow').forEach(s => s.textContent = '');
+        th.querySelector('.sort-arrow').textContent = currentSort.dir==='asc' ? '▲' : '▼';
+        renderProjectTable();
+      });
+    });
+
+    // --- Search ---
+    document.getElementById('searchInput').addEventListener('input', (e) => {
+      searchQuery = e.target.value;
+      renderProjectTable();
+    });
+
+    // Auto-refresh every 5 min
     setInterval(loadData, 300000);
   </script>
 </body>
