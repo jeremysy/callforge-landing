@@ -6,6 +6,35 @@
   <title>Sylvio Command Center</title>
   <link rel="icon" href="/favicon.svg">
   <style>
+    .auth-wall {
+      position: fixed;
+      inset: 0;
+      background: #0a0a0f;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .auth-wall.hidden { display: none; }
+    .auth-wall .logo-icon { font-size: 48px; }
+    .auth-wall input {
+      background: #1a1a25;
+      border: 1px solid #2a2a3a;
+      color: #e4e4ef;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 16px;
+      width: 260px;
+      text-align: center;
+      outline: none;
+    }
+    .auth-wall input:focus { border-color: #6c5ce7; }
+    .auth-wall .error { color: #e17055; font-size: 13px; min-height: 20px; }
+    .app-content { display: none; }
+    .app-content.visible { display: block; }
+
     :root {
       --bg: #0a0a0f;
       --surface: #12121a;
@@ -257,6 +286,12 @@
   </style>
 </head>
 <body>
+  <div class="auth-wall" id="authWall">
+    <span class="logo-icon">🧠</span>
+    <input type="password" id="authInput" placeholder="Password" autofocus>
+    <div class="error" id="authError"></div>
+  </div>
+  <div class="app-content" id="appContent">
   <div class="container">
     <header>
       <div class="logo">
@@ -284,7 +319,49 @@
     </footer>
   </div>
 
+  </div><!-- /app-content -->
   <script>
+    // SHA-256 hash check (password not stored in plaintext)
+    async function sha256(str) {
+      const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
+      return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
+    }
+
+    const PASS_HASH = '98919a67cc8e05e582c5c4e080d71c3f0c37db3f7c312792d9db98b42b015ed4';
+    const SESSION_KEY = 'sylvio_auth';
+
+    async function checkAuth(password) {
+      const hash = await sha256(password);
+      return hash === PASS_HASH;
+    }
+
+    function initAuth() {
+      if (sessionStorage.getItem(SESSION_KEY) === 'true') {
+        unlock();
+        return;
+      }
+      document.getElementById('authInput').addEventListener('keydown', async (e) => {
+        if (e.key === 'Enter') {
+          const val = e.target.value;
+          if (await checkAuth(val)) {
+            sessionStorage.setItem(SESSION_KEY, 'true');
+            unlock();
+          } else {
+            document.getElementById('authError').textContent = 'Wrong password';
+            e.target.value = '';
+          }
+        }
+      });
+    }
+
+    function unlock() {
+      document.getElementById('authWall').classList.add('hidden');
+      document.getElementById('appContent').classList.add('visible');
+      loadData();
+    }
+
+    initAuth();
+
     async function loadData() {
       try {
         const res = await fetch('data.json?' + Date.now());
