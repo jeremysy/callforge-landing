@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sylvio Command Center</title>
+  <style>
+    :root {
+      --bg: #0a0a0f;
+      --surface: #12121a;
+      --surface2: #1a1a25;
+      --border: #2a2a3a;
+      --text: #e4e4ef;
+      --muted: #6b6b80;
+      --accent: #6c5ce7;
+      --accent-glow: rgba(108, 92, 231, 0.2);
+      --green: #00b894;
+      --yellow: #fdcb6e;
+      --red: #e17055;
+      --blue: #74b9ff;
+      --purple: #a29bfe;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+    
+    /* Header */
+    .header {
+      background: linear-gradient(180deg, var(--surface) 0%, var(--bg) 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 24px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .header-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-icon { font-size: 28px; }
+    .logo h1 {
+      font-size: 20px;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--accent), var(--purple));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .header-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--green);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+    
+    /* Main Layout */
+    .main {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 24px;
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 24px;
+    }
+    
+    /* Stats Row */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .stat-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+      text-align: center;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .stat-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+    .stat-value {
+      font-size: 32px;
+      font-weight: 700;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .stat-label {
+      font-size: 11px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    /* Projects Grid */
+    .section-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .project-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 0 20px var(--accent-glow);
+    }
+    .project-card.expanded {
+      grid-column: span 2;
+    }
+    .project-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+    .project-name {
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .project-emoji { font-size: 18px; }
+    .status-badge {
+      font-size: 10px;
+      padding: 3px 8px;
+      border-radius: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    .status-active { background: rgba(0,184,148,0.15); color: var(--green); }
+    .status-blocked { background: rgba(225,112,85,0.15); color: var(--red); }
+    .status-waiting { background: rgba(253,203,110,0.15); color: var(--yellow); }
+    .project-desc {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .project-tasks {
+      display: none;
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+    }
+    .project-card.expanded .project-tasks { display: block; }
+    .task {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      padding: 6px 0;
+      font-size: 13px;
+    }
+    .task-icon { flex-shrink: 0; }
+    .project-progress {
+      height: 4px;
+      background: var(--border);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .project-progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent), var(--green));
+      transition: width 0.3s;
+    }
+    
+    /* Sidebar */
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .sidebar-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+    }
+    .sidebar-title {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+    }
+    
+    /* Alerts */
+    .alert-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 10px;
+      background: rgba(225,112,85,0.08);
+      border: 1px solid rgba(225,112,85,0.2);
+      border-radius: 8px;
+      margin-bottom: 8px;
+      font-size: 13px;
+    }
+    .alert-item:last-child { margin-bottom: 0; }
+    .alert-project {
+      font-size: 10px;
+      background: var(--surface2);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+    
+    /* Activity */
+    .activity-item {
+      display: flex;
+      gap: 10px;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 13px;
+    }
+    .activity-item:last-child { border-bottom: none; }
+    .activity-time {
+      color: var(--muted);
+      font-size: 11px;
+      font-family: monospace;
+      min-width: 45px;
+    }
+    .activity-text { flex: 1; }
+    .activity-project {
+      color: var(--accent);
+      font-weight: 600;
+    }
+    
+    /* Quick Actions */
+    .quick-actions {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+    }
+    .quick-action {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 10px;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 12px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .quick-action:hover {
+      border-color: var(--accent);
+      background: var(--accent-glow);
+    }
+    
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .main {
+        grid-template-columns: 1fr;
+      }
+      .stats-row {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+      .project-card.expanded {
+        grid-column: span 1;
+      }
+    }
+    @media (max-width: 600px) {
+      .stats-row {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .header-meta { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header-content">
+      <div class="logo">
+        <span class="logo-icon">🧠</span>
+        <h1>Sylvio Command Center</h1>
+      </div>
+      <div class="header-meta">
+        <div class="status-dot"></div>
+        <span>Live</span>
+        <span>•</span>
+        <span id="lastUpdated">Feb 1, 2026 • 4:21 AM</span>
+      </div>
+    </div>
+  </header>
+  
+  <main class="main">
+    <div class="content">
+      <div class="stats-row">
+        <div class="stat-card">
+          <div class="stat-value" style="color: var(--accent)">7</div>
+          <div class="stat-label">Projects</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" style="color: var(--green)">18</div>
+          <div class="stat-label">Done</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" style="color: var(--yellow)">12</div>
+          <div class="stat-label">In Progress</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" style="color: var(--red)">4</div>
+          <div class="stat-label">Blocked</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" style="color: var(--blue)">89%</div>
+          <div class="stat-label">Health</div>
+        </div>
+      </div>
+      
+      <div class="section-title">📂 Active Projects</div>
+      <div class="projects-grid" id="projectsGrid">
+        <!-- Projects rendered by JS -->
+      </div>
+    </div>
+    
+    <aside class="sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-title">🚨 Needs Attention</div>
+        <div id="alerts">
+          <!-- Alerts rendered by JS -->
+        </div>
+      </div>
+      
+      <div class="sidebar-card">
+        <div class="sidebar-title">⚡ Quick Actions</div>
+        <div class="quick-actions">
+          <div class="quick-action" onclick="alert('Opening Apollo...')">📧 Check Apollo</div>
+          <div class="quick-action" onclick="alert('Opening HubSpot...')">💼 HubSpot CRM</div>
+          <div class="quick-action" onclick="alert('Checking emails...')">✉️ Check Email</div>
+          <div class="quick-action" onclick="alert('Opening Twitter...')">🐦 Twitter</div>
+        </div>
+      </div>
+      
+      <div class="sidebar-card">
+        <div class="sidebar-title">📋 Recent Activity</div>
+        <div id="activity">
+          <!-- Activity rendered by JS -->
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <script>
+    const projects = [
+      {
+        name: "Tastewise",
+        emoji: "🍽️",
+        status: "active",
+        desc: "Day job — Solutions Engineer",
+        progress: 60,
+        tasks: [
+          { status: "done", text: "Brief submission finalized (Microsoft call)" },
+          { status: "active", text: "oAuth setup on insights agent" },
+          { status: "pending", text: "Submit insights agent to app store" },
+          { status: "pending", text: "Find more liquor stores for DoorDash" }
+        ]
+      },
+      {
+        name: "Yapper",
+        emoji: "💬",
+        status: "active",
+        desc: "B2C product — video + Mac Studio training setup",
+        progress: 45,
+        tasks: [
+          { status: "done", text: "Remotion video built (7 scenes, 45s)" },
+          { status: "active", text: "Finalize promo video with new music" },
+          { status: "pending", text: "Mac Studio setup for local AI training" },
+          { status: "pending", text: "NVIDIA GPU for model training" }
+        ]
+      },
+      {
+        name: "Westclox",
+        emoji: "📧",
+        status: "blocked",
+        desc: "Phone company — Apollo cold email, HubSpot CRM",
+        progress: 30,
+        tasks: [
+          { status: "done", text: "Email V2 content populated" },
+          { status: "blocked", text: "106 Apollo contacts stuck — manual re-enroll needed" },
+          { status: "active", text: "HubSpot CRM setup for Binny" }
+        ]
+      },
+      {
+        name: "Regency Portal",
+        emoji: "🏗️",
+        status: "active",
+        desc: "Firebase budget portal — QBO sync",
+        progress: 75,
+        tasks: [
+          { status: "done", text: "Bill links fix deployed" },
+          { status: "done", text: "QBO category update feature built" },
+          { status: "active", text: "Validate items going to correct categories" },
+          { status: "pending", text: "Live test category updater" }
+        ]
+      },
+      {
+        name: "Flycomm",
+        emoji: "✈️",
+        status: "waiting",
+        desc: "Canadian wireless/telecom outreach",
+        progress: 15,
+        tasks: [
+          { status: "pending", text: "Export LinkedIn connections" },
+          { status: "pending", text: "Finalize who to message (Uriel)" }
+        ]
+      },
+      {
+        name: "Morningful.ai",
+        emoji: "🌅",
+        status: "waiting",
+        desc: "AI-powered QBO insights — CTO role",
+        progress: 35,
+        tasks: [
+          { status: "done", text: "Architecture docs written" },
+          { status: "pending", text: "Re-authorize QBO OAuth tokens" },
+          { status: "pending", text: "Start Phase 1 MVP" }
+        ]
+      }
+    ];
+    
+    const alerts = [
+      { project: "Westclox", text: "106 Apollo contacts stuck at 'not_sent' — 2 min manual fix" },
+      { project: "Yapper", text: "Mac Studio + NVIDIA setup pending" },
+      { project: "Morningful", text: "QBO OAuth tokens need re-auth" }
+    ];
+    
+    const activity = [
+      { time: "4:21", project: "Meta", text: "Built playground skill" },
+      { time: "4:00", project: "Twitter", text: "Reviewed playground plugin tweet" },
+      { time: "3:52", project: "Yapper", text: "Reminder set for video + YouTube" },
+      { time: "Jan 30", project: "Regency", text: "QBO category update tested" }
+    ];
+    
+    // Render projects
+    const grid = document.getElementById('projectsGrid');
+    projects.forEach((p, i) => {
+      const statusClass = { active: 'status-active', blocked: 'status-blocked', waiting: 'status-waiting' }[p.status] || '';
+      const taskIcons = { done: '✅', active: '🔵', blocked: '🔴', pending: '🟡' };
+      
+      const card = document.createElement('div');
+      card.className = 'project-card';
+      card.innerHTML = `
+        <div class="project-header">
+          <div class="project-name">
+            <span class="project-emoji">${p.emoji}</span>
+            ${p.name}
+          </div>
+          <span class="status-badge ${statusClass}">${p.status}</span>
+        </div>
+        <div class="project-desc">${p.desc}</div>
+        <div class="project-progress">
+          <div class="project-progress-fill" style="width: ${p.progress}%"></div>
+        </div>
+        <div class="project-tasks">
+          ${p.tasks.map(t => `
+            <div class="task">
+              <span class="task-icon">${taskIcons[t.status] || '⚪'}</span>
+              <span>${t.text}</span>
+            </div>
+          `).join('')}
+        </div>
+      `;
+      card.onclick = () => card.classList.toggle('expanded');
+      grid.appendChild(card);
+    });
+    
+    // Render alerts
+    document.getElementById('alerts').innerHTML = alerts.map(a => `
+      <div class="alert-item">
+        <span>🔴</span>
+        <div>
+          <span class="alert-project">${a.project}</span>
+          <div style="margin-top:4px">${a.text}</div>
+        </div>
+      </div>
+    `).join('');
+    
+    // Render activity
+    document.getElementById('activity').innerHTML = activity.map(a => `
+      <div class="activity-item">
+        <span class="activity-time">${a.time}</span>
+        <span class="activity-text">
+          <span class="activity-project">${a.project}</span> — ${a.text}
+        </span>
+      </div>
+    `).join('');
+  </script>
+</body>
+</html>
