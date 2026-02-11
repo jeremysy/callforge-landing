@@ -1,94 +1,280 @@
 {
-  "lastUpdated": "2026-01-28T06:10:00Z",
+  "lastUpdated": "2026-02-11T07:22:00Z",
   "stats": {
-    "totalTasks": 24,
-    "completed": 0,
-    "blocked": 2,
-    "inProgress": 22,
-    "activeProjects": 7
+    "totalTasks": 41,
+    "completed": 21,
+    "blocked": 1,
+    "inProgress": 19,
+    "activeProjects": 8
   },
   "projects": [
     {
       "name": "Regency Portal",
-      "emoji": "🏗️",
+      "emoji": "\ud83c\udfd7\ufe0f",
       "status": "active",
-      "description": "Firebase budget portal — QBO sync, category management",
+      "description": "Firebase budget portal \u2014 QBO sync, category management",
       "tasks": [
-        { "status": "active", "text": "Validate items going to correct categories" },
-        { "status": "active", "text": "Test category updater (QBO push built on feature/qbo-category-updates branch)" },
-        { "status": "done", "text": "Bill links fix deployed (commit 882f0d1)" },
-        { "status": "done", "text": "QBO category update feature built (dry-run tested ✅)" },
-        { "status": "pending", "text": "Live test category update with real record" },
-        { "status": "pending", "text": "Wire frontend to pass billQboId to update endpoint" }
+        {
+          "status": "active",
+          "text": "Validate items going to correct categories"
+        },
+        {
+          "status": "active",
+          "text": "Test category updater (QBO push built on feature/qbo-category-updates branch)"
+        },
+        {
+          "status": "done",
+          "text": "Bill links fix deployed (commit 882f0d1)"
+        },
+        {
+          "status": "done",
+          "text": "QBO category update feature built (dry-run tested \u2705)"
+        },
+        {
+          "status": "pending",
+          "text": "Live test category update with real record"
+        },
+        {
+          "status": "pending",
+          "text": "Wire frontend to pass billQboId to update endpoint"
+        }
       ]
     },
     {
       "name": "Tastewise",
-      "emoji": "🍽️",
+      "emoji": "\ud83c\udf7d\ufe0f",
       "status": "active",
-      "description": "Day job — Solutions Engineer",
+      "description": "Day job \u2014 Solutions Engineer",
       "tasks": [
-        { "status": "active", "text": "Finalize brief submission based on Microsoft call" },
-        { "status": "active", "text": "Get oAuth setup on insights agent" },
-        { "status": "active", "text": "Get insights agent submitted to app store" },
-        { "status": "active", "text": "Find more liquor stores for DoorDash" },
-        { "status": "active", "text": "Check Laura recipe stuff" }
+        {
+          "status": "active",
+          "text": "Finalize brief submission based on Microsoft call"
+        },
+        {
+          "status": "active",
+          "text": "Get oAuth setup on insights agent"
+        },
+        {
+          "status": "active",
+          "text": "Get insights agent submitted to app store"
+        },
+        {
+          "status": "active",
+          "text": "Find more liquor stores for DoorDash"
+        },
+        {
+          "status": "active",
+          "text": "Check Laura recipe stuff"
+        }
       ]
     },
     {
       "name": "Yapper",
-      "emoji": "💬",
+      "emoji": "\ud83d\udcac",
       "status": "active",
-      "description": "B2C product — promo video for launch",
+      "description": "AI companion for elderly \u2014 NIH grant + investor raise",
       "tasks": [
-        { "status": "active", "text": "Finalize promo video (music + panel recommendations pending)" },
-        { "status": "done", "text": "Remotion video built (7 scenes, 45s, portrait)" },
-        { "status": "done", "text": "Focus group panel review completed" }
+        {
+          "status": "active",
+          "text": "Finalize promo video (music + panel recommendations pending)"
+        },
+        {
+          "status": "done",
+          "text": "Remotion video built (7 scenes, 45s, portrait)"
+        },
+        {
+          "status": "done",
+          "text": "Focus group panel review completed"
+        }
       ]
     },
     {
-      "name": "Westclox",
-      "emoji": "📧",
+      "name": "RunFlow / DJ Mixes",
+      "emoji": "\ud83c\udfb5",
       "status": "active",
-      "description": "Phone company — cold email via Apollo, wholesale pipeline",
+      "description": "AI-powered running mixes \u2014 daily automation + stem-based transitions",
       "tasks": [
-        { "status": "active", "text": "Prepare for meeting with Binny tonight" },
-        { "status": "active", "text": "Get CRM sorted (HubSpot)" },
-        { "status": "blocked", "text": "106 Apollo contacts stuck at 'not_sent' — manual re-enroll needed (2 min)" }
+        {
+          "status": "done",
+          "text": "Daily mix cron running"
+        },
+        {
+          "status": "active",
+          "text": "Stem transfer to Mac Mini"
+        },
+        {
+          "status": "pending",
+          "text": "V5 engine with stem-based transitions"
+        },
+        {
+          "status": "done",
+          "text": "Strava correlation pipeline working"
+        },
+        {
+          "status": "done",
+          "text": "Music-biometric model research done"
+        }
       ]
     },
     {
-      "name": "Flycomm",
-      "emoji": "✈️",
+      "name": "Trading System",
+      "emoji": "\ud83d\udcc8",
       "status": "active",
-      "description": "Canadian wireless/telecom outreach",
+      "description": "Institutional footprint scanner \u2014 options flow + Arete strategies",
       "tasks": [
-        { "status": "active", "text": "Finalize who to message (Uriel stuff)" },
-        { "status": "pending", "text": "Export LinkedIn connections CSV" }
+        {
+          "status": "done",
+          "text": "Scanner v2.6 live"
+        },
+        {
+          "status": "done",
+          "text": "5 strategies deployed"
+        },
+        {
+          "status": "done",
+          "text": "Questrade integration working"
+        },
+        {
+          "status": "done",
+          "text": "Paper trading (Hyperliquid) running"
+        },
+        {
+          "status": "pending",
+          "text": "12-SMA trailing stop upgrade"
+        },
+        {
+          "status": "done",
+          "text": "Deep transcript mining done"
+        }
       ]
     },
     {
-      "name": "CallForgr / Twitter",
-      "emoji": "🐦",
-      "status": "blocked",
-      "description": "Twitter growth via @Callforge",
+      "name": "Mac Mini",
+      "emoji": "\ud83d\udda5\ufe0f",
+      "status": "active",
+      "description": "Apple M1 node \u2014 DJ engine + Ollama + AI Office",
       "tasks": [
-        { "status": "blocked", "text": "API rate limited — resets Wed 3:30 AM UTC" },
-        { "status": "pending", "text": "Fresh browser cookies needed for GraphQL access" },
-        { "status": "done", "text": "3x/day tweet schedule running (9am/2pm/8pm Israel)" }
+        {
+          "status": "done",
+          "text": "Ollama + Mistral 7B installed"
+        },
+        {
+          "status": "done",
+          "text": "ChromaDB indexing"
+        },
+        {
+          "status": "done",
+          "text": "DJ engine migrated (test mix generated)"
+        },
+        {
+          "status": "blocked",
+          "text": "ffmpeg install needed"
+        },
+        {
+          "status": "pending",
+          "text": "Daily cron switch pending"
+        },
+        {
+          "status": "active",
+          "text": "YappioBot migration in progress"
+        }
+      ]
+    },
+    {
+      "name": "AI Office Building",
+      "emoji": "\ud83c\udfe2",
+      "status": "active",
+      "description": "Multi-tenant AI-as-a-Service platform",
+      "tasks": [
+        {
+          "status": "done",
+          "text": "Product spec written"
+        },
+        {
+          "status": "pending",
+          "text": "CLI provisioning prototype"
+        },
+        {
+          "status": "pending",
+          "text": "First tenant pitch"
+        }
+      ]
+    },
+    {
+      "name": "CallForGR",
+      "emoji": "\ud83d\udce7",
+      "status": "active",
+      "description": "AI SDR-as-a-Service \u2192 pivoted to AI running mix platform",
+      "tasks": [
+        {
+          "status": "done",
+          "text": "Landing page live"
+        },
+        {
+          "status": "done",
+          "text": "Daily email automation"
+        },
+        {
+          "status": "done",
+          "text": "Growth/research/brand agents deployed"
+        },
+        {
+          "status": "done",
+          "text": "Strava integration working"
+        }
       ]
     },
     {
       "name": "Morningful.ai",
-      "emoji": "🌅",
+      "emoji": "\ud83c\udf05",
       "status": "waiting",
-      "description": "AI-powered QBO insights — CTO role",
+      "description": "AI-powered QBO insights \u2014 CTO role",
       "tasks": [
-        { "status": "done", "text": "Architecture + implementation plan written" },
-        { "status": "pending", "text": "Re-authorize QBO OAuth tokens" },
-        { "status": "pending", "text": "Start Phase 1 MVP" }
+        {
+          "status": "done",
+          "text": "Architecture + implementation plan written"
+        },
+        {
+          "status": "pending",
+          "text": "Re-authorize QBO OAuth tokens"
+        },
+        {
+          "status": "pending",
+          "text": "Start Phase 1 MVP"
+        }
       ]
     }
   ],
-  "activity": []
+  "activity": [
+    {
+      "time": "Feb 11",
+      "project": "\ud83d\udcc8 Trading",
+      "text": "Scanner v2.6 live, 5 strategies deployed"
+    },
+    {
+      "time": "Feb 11",
+      "project": "\ud83c\udfb5 RunFlow",
+      "text": "Daily mix cron running, Strava pipeline working"
+    },
+    {
+      "time": "Feb 11",
+      "project": "\ud83d\udda5\ufe0f Mac Mini",
+      "text": "DJ engine migrated, Ollama installed"
+    },
+    {
+      "time": "Feb 10",
+      "project": "\ud83d\udce7 Westclox",
+      "text": "Project killed \u2014 no longer active"
+    },
+    {
+      "time": "Feb 10",
+      "project": "\u2708\ufe0f Flycomm",
+      "text": "Project killed \u2014 no longer active"
+    },
+    {
+      "time": "Feb 10",
+      "project": "\ud83d\udc26 Twitter",
+      "text": "API dead, tweets disabled"
+    }
+  ]
 }
